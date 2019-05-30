@@ -9,24 +9,22 @@
             display: inline;
             list-style-type: none;
             margin: 0;
-            padding: 10;
+            padding: 10px;
             color: white;
             background-color: black;
+            border: 1px solid black;
         }
 
         ul#menu2 li {
             display: inline;
-            margin: 0;
-            padding: 10px;
             color: white;
             background-color: darkgrey;
         }
 
-        dl#menu dt {
+        dl.menu>dt {
             display: inline;
             list-style-type: none;
             margin: 0;
-            padding: 10px;
         }
 
         section {
@@ -44,8 +42,25 @@
         nav#middlesection {
             background-color: lightgrey;
             color: white;
-            padding: 10px;
+            padding-top: 20px;
+            padding-left: 10px;
+            padding-bottom: 0.03px;
             border-color: black;
+        }
+
+        .bottomsection {
+            background-color: white;
+            color: black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: 0.5px solid black;
+            border-top: 0.5px solid black;
+        }
+
+        article#bottomheader {
+            background-color: lightgrey;
+            color: black;
+            border: 1px solid black;
         }
 
         li {
@@ -54,30 +69,52 @@
             background-color: black;
         }
 
-        #float {
+        .floatright {
             position: relative;
             float: right;
+            margin-right: 5px;
+        }
+
+        .floatleft {
+            position: relative;
+            float: left;
+            margin: -7px;
         }
 
         #fade {
-            fill-opacity: 75%;
+            opacity: 0.5;
         }
+
+        main#mainbox {
+            width: 90%;
+            position: relative;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        strong#black {
+            color: black;
+        }
+
+        img.float {
+            position: relative;
+        }
+
 
     </style>
 </head>
 <body>
     <nav id="topsection">
     <ul id="menu">
-        <li><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/30x30.svg" alt="placeholder"></li>
+        <li><img class="floatleft" src="img/30x30.svg" alt="placeholder"></li>
         <li>Pull requests</li>
         <li>Issues</li>
         <li>Marketplace</li>
         <li>Explore</li>
     </ul>
     </nav>
-    <hr>
     <nav id="middlesection">
-    <p><div><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/30x30.svg" alt="placeholder">Codeup</div></p>
+    <div><img class="floatleft" src="img/30x30.svg" alt="placeholder"><strong id="black">&nbsp &nbsp&nbsp&nbsp Codeup</strong></div>
     <ul id="menu2">
         <li>Repositories</li>
         <li>People</li>
@@ -86,43 +123,39 @@
         <li>Settings</li>
     </ul>
     </nav>
-    <hr>
-    <main>
-        <section>
-            <p><strong>Codeup's dev team</strong></p>
-        </section>
-        <article>
-            <dl id="menu">
-                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
-                <dt>Kent Beck</dt>
-                <dd>KentBeck</dd>
-                <dd id="float">Member 1 Team</dd>
+    <br>
+    <main id="mainbox">
+        <article id="bottomheader">
+            <p><strong>&nbsp &nbspCodeup's dev team</strong></p>
+        </article>
+        <article class="bottomsection">
+            <dl class="menu">
+                <span>&nbsp &nbsp</span><img src="img/48x48.svg" alt="placeholder">
+                <dt>&nbsp &nbsp Kent Beck</dt>
+                <dd>&nbsp &nbsp &nbsp &nbsp &nbsp KentBeck <span class="floatright">Member &nbsp &nbsp &nbsp 1 Team </span></dd>
             </dl>
         </article>
-        <article>
-            <dl id="menu">
-                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
-                <dt>Codeup Instruction Staff</dt>
-                <dd>CodeupInstructors</dd>
-                <dd id="float">Member 1 Team</dd>
+        <article class="bottomsection">
+            <dl class="menu">
+                <span>&nbsp &nbsp</span><img src="img/48x48.svg" alt="placeholder">
+                <dt>&nbsp &nbsp Codeup Instruction Staff</dt>
+                <dd>&nbsp &nbsp &nbsp &nbsp &nbsp CodeupInstructors <span class="floatright">Member &nbsp &nbsp &nbsp 1 Team </span></dd>
             </dl>
         </article>
-        <article>
-            <dl id="menu">
-                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
-                <dt>Martin Fowler</dt>
-                <dd></dd>
-                <dd id="float"> Member 0 Team</dd>
+        <article class="bottomsection">
+            <dl class="menu">
+                <span>&nbsp &nbsp<img class="float" src="img/48x48.svg" alt="placeholder"></span>
+                <dt>&nbsp &nbsp Martin Fowler</dt>
+                <dd> <span class="floatright"> Member &nbsp &nbsp &nbsp 0 Teams </span></dd>
+                <br>
             </dl>
         </article>
         <br>
+    </main>
         <hr>
         <footer>
-            <p>
             <span id="fade">&copy; 2018 Github, Inc.</span> Terms Privacy Security Status Help
-            <span id="float">Contact Github API Training Shop Blog About</span>
-            </p>
+            <span class="floatright">Contact Github API Training Shop Blog About</span>
         </footer>
-    </main>
 </body>
 </html>
