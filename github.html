@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github.html</title>
+    <style>
+
+        ul#menu li{
+            display: inline;
+            list-style-type: none;
+            margin: 0;
+            padding: 10;
+            color: white;
+            background-color: black;
+        }
+
+        ul#menu2 li {
+            display: inline;
+            margin: 0;
+            padding: 10px;
+            color: white;
+            background-color: darkgrey;
+        }
+
+        dl#menu dt {
+            display: inline;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+        }
+
+        section {
+            background-color: lightgrey;
+            color: black;
+            padding: 10px;
+        }
+
+        nav#topsection {
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
+        nav#middlesection {
+            background-color: lightgrey;
+            color: white;
+            padding: 10px;
+            border-color: black;
+        }
+
+        li {
+            padding: 10px;
+            color: white;
+            background-color: black;
+        }
+
+        #float {
+            position: relative;
+            float: right;
+        }
+
+        #fade {
+            fill-opacity: 75%;
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="topsection">
+    <ul id="menu">
+        <li><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/30x30.svg" alt="placeholder"></li>
+        <li>Pull requests</li>
+        <li>Issues</li>
+        <li>Marketplace</li>
+        <li>Explore</li>
+    </ul>
+    </nav>
+    <hr>
+    <nav id="middlesection">
+    <p><div><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/30x30.svg" alt="placeholder">Codeup</div></p>
+    <ul id="menu2">
+        <li>Repositories</li>
+        <li>People</li>
+        <li>Teams</li>
+        <li>Projects</li>
+        <li>Settings</li>
+    </ul>
+    </nav>
+    <hr>
+    <main>
+        <section>
+            <p><strong>Codeup's dev team</strong></p>
+        </section>
+        <article>
+            <dl id="menu">
+                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
+                <dt>Kent Beck</dt>
+                <dd>KentBeck</dd>
+                <dd id="float">Member 1 Team</dd>
+            </dl>
+        </article>
+        <article>
+            <dl id="menu">
+                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
+                <dt>Codeup Instruction Staff</dt>
+                <dd>CodeupInstructors</dd>
+                <dd id="float">Member 1 Team</dd>
+            </dl>
+        </article>
+        <article>
+            <dl id="menu">
+                <dt><img src="/Users/steventurner/IdeaProjects/codeup-web-exercises/img/48x48.svg" alt="placeholder"></dt>
+                <dt>Martin Fowler</dt>
+                <dd></dd>
+                <dd id="float"> Member 0 Team</dd>
+            </dl>
+        </article>
+        <br>
+        <hr>
+        <footer>
+            <p>
+            <span id="fade">&copy; 2018 Github, Inc.</span> Terms Privacy Security Status Help
+            <span id="float">Contact Github API Training Shop Blog About</span>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
