@@ -1,0 +1,94 @@
+ul#menu li{
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
+
+ul#menu2 li {
+    display: inline;
+    color: white;
+    background-color: darkgrey;
+}
+
+dl.menu>dt {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+
+section {
+    background-color: lightgrey;
+    color: black;
+    padding: 10px;
+}
+
+nav#topsection {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+nav#middlesection {
+    background-color: lightgrey;
+    color: white;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-bottom: 1px;
+    border-color: black;
+}
+
+.bottomsection {
+    background-color: white;
+    color: black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 0.5px solid black;
+    border-top: 0.5px solid black;
+}
+
+article#bottomheader {
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid black;
+}
+
+li {
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
+
+.floatright {
+    position: relative;
+    float: right;
+    margin-right: 5px;
+}
+
+.floatleft {
+    position: relative;
+    float: left;
+    margin: -7px;
+}
+
+#fade {
+    opacity: 0.5;
+}
+
+main#mainbox {
+    width: 90%;
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+strong#black {
+    color: black;
+}
+
+img.float {
+    position: relative;
+}
