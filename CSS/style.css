@@ -1,4 +1,67 @@
 
 .fancy-header {
-    color: purple;
+    color: #800080;
+    text-align: center;
+}
+
+img {
+    height: 500px;
+    width: 500px;
+    padding: 1px;
+}
+
+.headers {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+* {
+    font-family: "pt sans";
+}
+
+body {
+    background-image: url("https://media.istockphoto.com/vectors/molecular-structure-abstract-tech-background-medical-design-vector-vector-id1025210200");
+    background-size: cover;
+}
+
+ul>li {
+    list-style-type: circle;
+}
+
+table {
+    table-layout: auto;
+    width: 80%;
+    border-bottom: 1px solid black;
+    border-color: cornflowerblue;
+    border-spacing: 0px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+th {
+    text-decoration: underline;
+}
+
+td {
+    border-top: 1px solid black;
+    border-right: 0.5px solid black;
+    border-left: 0.5px solid black;
+    border-color: cornflowerblue;
+}
+
+tr {
+    border-top: 1px solid black;
+    border-color: cornflowerblue;
+}
+
+a:link {
+    color: deepskyblue;
+}
+
+a:visited {
+    color: black
+}
+
+a:link:hover {
+    background-color: white;
 }
