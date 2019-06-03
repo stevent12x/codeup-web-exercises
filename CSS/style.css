@@ -1,6 +1,6 @@
 
 * {
-    font-family: "pt sans" , "sans-serif" , "serif";
+    font-family: 'Titillium Web', Arial, sans-serif;
 }
 
 body {
@@ -9,20 +9,38 @@ body {
 }
 
 .fancy-header {
-    color: #800080;
+    color:#903da9;
     text-align: center;
     text-decoration: underline;
+}
+
+p {
+    text-align: center;
 }
 
 img {
     height: 500px;
     width: 500px;
     padding: 1px;
+    border: 1px solid;
+    margin: 1px;
+    opacity: .89;
+}
+
+div#imgcenter {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .headers {
     color: cornflowerblue;
     text-decoration: underline;
+    margin-left: 5%;
+}
+
+ul, ol {
+    margin-left: 5%;
 }
 
 ul>li {
@@ -31,13 +49,22 @@ ul>li {
 
 table {
     table-layout: fixed;
-    width: 71%;
-    border-bottom: 1px solid black;
+    width: 78%;
+    border-bottom: 2px solid;
     border-color: cornflowerblue;
-    border-spacing: 0px;
+    border-spacing: 0;
     text-align: center;
     font-size: 1.2em;
     padding: 1px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr {
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-color: cornflowerblue;
 }
 
 th {
@@ -46,11 +73,15 @@ th {
 }
 
 td {
-    border-top: 0.5px solid black;
-    border-right: .1px solid black;
-    border-left: .1px solid black;
+    border-top: 2px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
     border-color: cornflowerblue;
     padding: 1px;
+}
+
+h3#center {
+    text-align: center;
 }
 
 a:link {
@@ -61,6 +92,10 @@ a:visited {
     color: black
 }
 
-a:link:hover {
-    background-color: white;
+a:hover {
+    transition: font-size 800ms, color 800ms;
+    font-size: 120%;
+    color: #903da9;
+    transition-timing-function: ease-in-out;
 }
+
