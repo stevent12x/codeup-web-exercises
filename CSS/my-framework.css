@@ -1,0 +1,14 @@
+body, html {
+    border: none;
+    padding: none;
+    color: #6D757D;
+}
+
+.btn-group {
+    background: #6D757D;
+    padding: none;
+    width: 20%;
+    height: 50%;
+    border: 1px solid black;
+    color: white;
+}
