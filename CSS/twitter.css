@@ -70,8 +70,7 @@ a {
     list-style-type: none;
 }
 .profile-entry {
-    margin-top: .5em;
-    padding-left: none;
+    margin: .5em;
 }
 .timeline {
     float: left;

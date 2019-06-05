@@ -1,0 +1,117 @@
+
+body {
+    background: #F3F3F3;
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+.top-nav {
+    background: #333333;
+    color: white;
+    position: relative;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: inline-block;
+}
+.nav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+    display: inline-list-item;
+}
+.nav-item {
+    display: inline-block;
+    border-left: 1px solid white;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+}
+/*.top-nav .logo {*/
+/*    float: left;*/
+/*}*/
+#B {
+    position: relative;
+    display: inline-block;
+    padding: 2px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+#B2 {
+    position: relative;
+    display: inline-block;
+    padding: 2px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+#C {
+    position: relative;
+    display: inline-block;
+    padding: 2px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+
+}
+.box {
+    margin-left: 150px;
+    margin-right: 200px;
+    width: 64%;
+    height: 38em;
+    border-left: 8px solid white;
+    border-bottom: 8px solid white;
+    border-right: 8px solid white;
+    position: fixed;
+}
+.error-message {
+    color: black;
+    font-size: 1.2em;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+.shadow-box {
+    background: #E0E0E0;
+    margin-left: 0;
+    margin-right: 200px;
+    margin-top: 60px;
+    width: 100%;
+    height: 20em;
+    position: relative;
+}
+.but-why-box {
+    position: absolute;
+    max-width: 460px;
+    max-height: 190px;
+    padding: 15px;
+    border: 1px solid black;
+    font-size: .75em;
+    margin-left: 250px;
+    top: 150px;
+    bottom: 200px;
+    list-style-position: inside;
+}
+.why-list {
+    padding-left: 25px;
+}
+.footer {
+    background: #646464;
+    margin-left: 0;
+    margin-right: 200px;
+    margin-top: 60px;
+    width: 100%;
+    height: 8em;
+    position: relative;
+}
