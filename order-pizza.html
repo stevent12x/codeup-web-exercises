@@ -12,13 +12,13 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shift" style="border-top: 2px solid darkgrey; margin-top: 1px">
     <div class="bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler shift" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto shift">
             <li class="nav-item" style="padding-bottom: 2px;">
                 <a class="nav-link" href="#" aria-pressed="true">Pizza World</a>
             </li>
@@ -46,6 +46,135 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Welcome to Pizza World!</h1>
+        </div>
+    </div>
+<!--    <div class="nav-tab">-->
+<!--        <h2>Build your own pizza!</h2>-->
+<!--        <hr>-->
+<!--        <ul class="nav nav-tabs mr-auto">-->
+<!--            <li class="nav-item" style="text-align: center; color: #000;">-->
+<!--                <a class="nav-link active" aria-pressed="true" href="#"><span class="badge badge-secondary">1</span>Size and crust</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" aria-pressed="undefined" href="#"><span class="badge badge-secondary">2</span>Cheese and sauce</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" aria-pressed="undefined" href="#"><span class="badge badge-secondary">3</span>Toppings</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+    <div>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="size-and-crust"><span class="badge badge-secondary">1</span>Size and crust</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="badge badge-secondary">2</span>Cheese and sauce</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><span class="badge badge-secondary">3</span>Toppings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">Choose size and crust</h6>
+                        <!--begin unordered list-->
+                <container class="list-container">
+                    <div class="card" style="width: 100%; position: center">
+                        <div class="card-header">
+                            Hand Tossed
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Garlic-seasoned crust with rich buttery taste</li>
+                            <div>
+                                <ul class="size-group">
+                                    <li><input type="radio" name="size" value="small">Small (10")</li>
+                                        <hr>
+                                    <li><input type="radio" name="size" value="medium">Medium (12")</li>
+                                </ul>
+                            </div>
+                        </ul>
+                        </div>
+                        <div class="card-header" style="margin-top: 40px; border-top: 1px solid lightgrey; border-radius: 3px;">
+                            Crunchy thin crust
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Thin enough for the optimum crispy to crunchy ratio</li>
+                                <div>
+                                    <ul class="size-group">
+                                        <li><input type="radio" name="size" value="medium">Medium (12")</li>
+                                            <hr>
+                                        <li><input type="radio" name="size" value="large">Large (14")</li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </container>
+            </div>
+
+
+            <div class="card-body">
+                <h6 class="card-title">Choose cheese & sauce</h6>
+                <!--begin unordered list-->
+                <container class="list-container">
+                    <div class="card" style="width: 100%; position: center">
+                        <div class="card-header">
+                            Cheese?
+                                <div>
+                                    <ul class="size-group">
+                                        Cheese
+                                            <br>
+                                            <select name="cheese" id="cheese">
+                                                <option value="light">Light</option>
+                                                <option value="regular">Regular</option>
+                                                <option value="heavy">Heavy</option>
+                                                <option value="none">None</option>
+                                            </select>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="card-header" style="margin-top: 40px; border-top: 1px solid lightgrey; border-radius: 3px;">
+                            Sauce?
+<!--                            <ul class="list-group list-group-flush">-->
+<!--                                <li class="list-group-item">Thin enough for the optimum crispy to crunchy ratio</li>-->
+<!--                                <div>-->
+                                    <ul class="size-group">
+                                        Sauce
+                                        <br>
+                                        <select name="sauce" id="sauce">
+                                            <option value="robust-tomato">Robust Inspired Tomato Sauce</option>
+                                            <option value="mild-tomato">Weak Uninspired Tomato Sauce</option>
+                                            <option value="alfredo">White Aldfredo Sauce</option>
+                                            <option value="chocolate">Chocolate Sauce</option>
+                                        </select>
+                                        <br>
+                                        <hr>
+
+                                        How much?
+                                        <br>
+                                        <select name="amount" id="amount">
+                                            <option value="light">Light</option>
+                                            <option value="regular">Regular</option>
+                                            <option value="heavy">Heavy</option>
+                                            <option value="none">None</option>
+                                        </select>
+                                        <br>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </container>
+                <div class="arrow-array">
+                    <a href="size-and-crust" class="btn btn-primary">&#x25C1; Previous Step</a>
+                    <a href="size-and-crust" class="btn btn-primary">Next Step &#x25B7;</a>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </container>
