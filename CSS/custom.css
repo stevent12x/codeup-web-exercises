@@ -148,7 +148,8 @@ input[type="radio"] {
     margin: 7px auto;
 }
 .arrow-array {
-    position: relative;
+    /*position: relative;*/
     margin 0 auto;
+    position: auto
 
 }
