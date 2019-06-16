@@ -60,6 +60,7 @@ var confirmNumber = confirm("Would you like to enter a number?"); {
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+
 function analyzeColor(color) {
 	if (color === "blue") {
 		console.log("Blue is the color of the sky.")}
@@ -107,6 +108,7 @@ switch (randomColor) {
 	default:
 		console.log("please enter a real color");
 		break;
+}
 //
 // }
 // /**
@@ -115,6 +117,8 @@ switch (randomColor) {
 //  * user to your `analyzeColor` function. Alert the return value from your
 //  * function to show it to the user.
 //  */
+//
+//
 
 var userColor = prompt("Please enter your favorite color!");
 	analyzeColor(userColor); {
@@ -127,7 +131,7 @@ var userColor = prompt("Please enter your favorite color!");
 	else {
 		alert("Please enter a real color.")}
 	}
-}
+
 
 
 /**
