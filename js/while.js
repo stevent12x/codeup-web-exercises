@@ -1,6 +1,5 @@
 "use strict";
 
-// While Loop
 
 (function () {
 	var i = 2;
@@ -11,7 +10,6 @@
 	}
 })();
 
-//Do-While Loop
 
 (function () {
 	var allCones = (Math.floor(Math.random()*50)+50);
@@ -22,7 +20,7 @@
 			allCones -= conesPurchased;
 			console.log("I just sold " + conesPurchased + " cones. Only " + allCones + " cones left.");
 		} else {
-			console.log(" I cannot sell you " + conesPurchased + " cones. I only have " + allCones + " cones left...");
+			console.log("I cannot sell you " + conesPurchased + " cones. I only have " + allCones + " cones left...");
 		}
 	}
 	while (allCones > 0);
