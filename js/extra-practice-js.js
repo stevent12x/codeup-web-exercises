@@ -19,7 +19,7 @@ var clubArray=[mondayClub,tuesdayClub,wednesdayClub,thursdayClub,fridayClub];
 
 // var prompts the user to enter a single day of the week
 
-var dayOfWeek=prompt("What day of the week do you have a prior commitment?");
+var dayOfWeek=prompt("On what day of the week do you have a prior commitment?");
 
 //function that takes the prompt as a parameter, takes the user's input and removes it from the above array,
 //and returns the remaining array in sentence form
@@ -132,7 +132,7 @@ function smeltingTime(metalOnHand,metalToBuy,metalToSmelt) {
 		alert(Math.floor(Number(metalToSmelt/40)).toFixed(0)+" Ingots are sold for $"+((Math.floor(Number(metalToSmelt/40)))
 			*225).toFixed(2)+".");
 		alert("The leftover raw metal is sold for $"+(Number(metalToSmelt%40).toFixed(2)*1.3125).toFixed(2)+".");
-		alert("The total profit for this batch was $"+(((((Math.floor(Number(metalToSmelt/40)))*225).toFixed(2))-
+		alert("The total profit for this batch was $"+Number(((((Math.floor(Number(metalToSmelt/40)))*225).toFixed(2))-
 			((Number(metalToSmelt%40)).toFixed(2)*1.3125).toFixed(2))-(Number(metalToBuy)*1.875).toFixed(2))+"!");
 	} else if (metalToSmelt<40) {
 		console.log("Not enough metal");
