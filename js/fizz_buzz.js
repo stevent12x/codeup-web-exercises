@@ -12,8 +12,5 @@ for (var i = 1; i <=100000; i++)
 		} else {
 			console.log(i);
 		}
-
-
 	}
-
 })()
