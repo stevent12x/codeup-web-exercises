@@ -7,7 +7,7 @@
      * 'names'.
      */
 
-    var namesArray = ['Steven', 'Katelin', 'Theresa', 'Randy'];
+    var array = ['Steven', 'Katelin', 'Theresa', 'Randy'];
 
     /**
      * TODO:
@@ -15,7 +15,7 @@
      * array.
      */
 
-    console.log(namesArray.length);
+    console.log(array.length);
 
     /**
      * TODO:
@@ -23,10 +23,10 @@
      * accessing each element's index.
      */
 
-    console.log(namesArray[0]);
-    console.log(namesArray[1]);
-    console.log(namesArray[2]);
-    console.log(namesArray[3]);
+    console.log(array[0]);
+    console.log(array[1]);
+    console.log(array[2]);
+    console.log(array[3]);
 
     /**
      * TODO:
@@ -34,15 +34,15 @@
      * array.
      */
 
-    for (var i = 0; i < namesArray.length; i++) {
-        console.log(namesArray[i]);
+    for (var i = 0; i < array.length; i++) {
+        console.log(array[i]);
     }
 
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    namesArray.forEach(function(name) {
+    array.forEach(function(name) {
         console.log(name);
     });
     /**
@@ -58,19 +58,20 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    function first() {
-        console.log(namesArray[0]);
-        return namesArray[0];
+    function first(array) {
+        console.log(array[0]);
+        return array[0];
     }
-    function second() {
-        console.log(namesArray[1]);
-        return namesArray[1];
+    function second(array) {
+        console.log(array[1]);
+        return array[1];
     }
-    function last() {
-        console.log(namesArray[3]);
-        return namesArray[3];
+    function last(array) {
+        console.log(array[array.length-1]);
+        return array[array.length-1];
     }
-    first();
-    second();
-    last();
+
+    first(array);
+    second(array);
+    last(array);
 })();
