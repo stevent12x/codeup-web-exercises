@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maps!</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 75%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+<h1>My First Mapbox Map!</h1>
+
+<div id='map'></div>
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script>
+	mapboxgl.accessToken = mapboxToken;
+	var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/stevent12x/cjxawuu0z0ft31cntwusc34vk',
+		zoom: 13,
+		center: [-122.4194, 37.7749]
+	});
+</script>
+</body>
+</html>
