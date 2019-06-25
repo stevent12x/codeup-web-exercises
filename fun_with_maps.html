@@ -5,28 +5,74 @@
     <title>Maps!</title>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <style>
+
+        body {
+            width: 100%;
+            margin: 0%;
+            height: 7000px;
+        }
+
         #map {
             /* the width and height may be set to any size */
-            width: 75%;
-            height: 700px;
+            top: 4%;
+            width: 100%;
+            height: 500px;
+        }
+
+        .popped {
+            color: darkgreen;
+            font-size: 2em;
+            background-image: url("img/codeup.png");
+        }
+
+        #button {
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            border-radius: 10%;
+            border-style: groove;
+        }
+
+        #text{
+            position: fixed;
+            text-align: center;
+            justify-content: center;
+            top: 5%;
+            left: 50%;
+            height: 150px;
+            width: 150px;
+            margin-top: -25px;
+            margin-left: -50px;
         }
     </style>
 </head>
 <body>
-<h1>My First Mapbox Map!</h1>
-
+<div id="text"><h1>My First Mapbox Map!</h1>
+    <button id="button">Zoom!</button></div>
 <div id='map'></div>
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 <script>
+
 	mapboxgl.accessToken = mapboxToken;
-	var map = new mapboxgl.Map({
+
+	var options = {
 		container: 'map',
-		style: 'mapbox://styles/stevent12x/cjxawuu0z0ft31cntwusc34vk',
-		zoom: 13,
-		center: [-122.4194, 37.7749]
-	});
+		style: 'mapbox://styles/mapbox/streets-v9',
+		zoom: 12,
+		center: [-98.489657, 29.426747]
+	};
+	var map = new mapboxgl.Map(options);
+    document.getElementById('button').addEventListener('click', function() {
+    	var marker = new mapboxgl.Marker()
+	        .setLngLat([-98.489657, 29.426747]).addTo(map);
+    	map.setZoom(20);
+    	var popup = new mapboxgl.Popup()
+            .setLngLat([-98.489657, 29.426747])
+            .setHTML("<p class = 'popped'>Hello from Codeup!</p>")
+            .addTo(map);
+    });
 </script>
 </body>
 </html>

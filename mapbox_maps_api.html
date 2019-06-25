@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Maps API</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+
+        #map {
+            top: 5%;
+            width: 100%;
+            height: 700px;
+        }
+
+        .restaurant {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Welcome to San Francisco!</h1>
+<h3>Here Are Some Awesome Restaurants to Check Out:</h3>
+<div id="buttonBlock">
+    <button class="button" id="coqueta">Coqueta</button>
+    <button class="button" id="burma">Burma Superstar</button>
+    <button class="button" id="mensho">Mensho Tokyo SF</button>
+</div>
+
+<div id="map"></div>
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+
+//	Generate a Mapbox API Key using the steps from above
+//	Create a new file named mapbox_maps_api.html and add a map using the next steps.
+//		Generate a map that shows the city with your favorite restaurant using geocoding.
+//		Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom level where the map properties are initially set and refresh the page to see the changes. Can the zoom be changed programmatically after the initial map is drawn?
+//		Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best viewing distance.
+//		Create a popup with the name of the restaurant.
+//		Make sure the info window does not display until the marker has been clicked on.
+//		Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.
+
+	mapboxgl.accessToken = mapboxToken;
+
+    var options = {
+	    container: "map",
+	    style: 'mapbox://styles/mapbox/streets-v9',
+	    zoom: 12,
+	    center: [-122.431253, 37.775332]
+    };
+
+    var map = new mapboxgl.Map(options);
+
+    var coquetaInfo = {
+    	coquetaAddress: "Pier 5, The Embarcadero, San Francisco, CA 94111",
+        coquetaPopupHTML: "<p class='restaurant'><strong>Coqueta</strong></p><p>Spanish tapas on the Embarcadero</p>"
+    };
+
+    var burmaSuperStarInfo = {
+    	burmaAddress: "309 Clement St, San Francisco, CA 94118",
+        burmaPopupHTML: "<p class='restaurant'><strong>Burma SuperStar</strong></p><p>Killer Burmese Food and a Local Favorite</p>"
+    };
+
+    var menshoTokyoInfo = {
+    	menshoAddress: "672 Geary St, San Francisco, CA 94102",
+        menshoPopupHTML: "<p class='restaurant'><strong>Mensho Tokyo SF</strong></p><p>Michelin-Starred Ramen in the Heart of Downtown</p>"
+    }
+
+    function coquetaMarkerAndPopup(info, token, map) {
+    	geocode(coquetaInfo.coquetaAddress, mapboxToken).then(function (coordinates) {
+    		var coquetaPopup = new mapboxgl.Popup()
+                .setHTML(coquetaInfo.coquetaPopupHTML);
+    		var coquetaMarker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(coquetaPopup)
+    		    .setCenter(coquetaInfo.coquetaAddress);
+    		coquetaPopup.addTo(map);
+    		coquetaMarker.addTo(map);
+        });
+    };
+
+    function burmaSuperStarMarkerAndPopup(info, token, map) {
+    	geocode(burmaSuperStarInfo.burmaAddress, mapboxToken).then(function (location) {
+            var burmaPopup = new mapboxgl.Popup()
+                .setHTML(burmaSuperStarInfo.burmaPopupHTML);
+            var burmaMarker = new mapboxgl.Marker()
+                .setLngLat(location)
+                .addTo(map)
+                .setPopup(burmaPopup)
+                .setCenter(burmaSuperStarInfo.burmaAddress);
+            burmaPopup.addTo(map);
+            burmaMarker.addTo(map);
+	    });
+    };
+
+    function menshoTokyoMarkerAndPopup(info, token, map) {
+    	geocode(menshoTokyoInfo.menshoAddress, mapboxToken).then(function (spot) {
+            var menshoPopup = new mapboxgl.Popup()
+                .setHTML(menshoTokyoInfo.menshoPopupHTML);
+            var menshoMarker = new mapboxgl.Marker()
+                .setLngLat(spot)
+                .addTo(map)
+                .setPopup(menshoPopup)
+                .setCenter(menshoTokyoInfo.menshoAddress);
+            menshoPopup.addTo(map);
+            menshoMarker.addTo(map);
+	    });
+    };
+
+    document.getElementById('coqueta').addEventListener('click', function () {
+    	coquetaMarkerAndPopup(coquetaInfo, mapboxToken, map);
+        map.setCenter(coquetaInfo.coquetaAddress);
+	    map.setZoom(20);
+    });
+
+    document.getElementById('burma').addEventListener('click', function () {
+        burmaSuperStarMarkerAndPopup(burmaSuperStarInfo, mapboxToken, map);
+        map.setCenter(burmaSuperStarInfo.burmaAddress);
+        map.setZoom(20);
+    });
+
+    document.getElementById('mensho').addEventListener('click', function () {
+        menshoTokyoMarkerAndPopup(menshoTokyoInfo, mapboxToken, map);
+        map.setCenter(menshoTokyoInfo.menshoAddress);
+        map.setZoom(20);
+    });
+
+</script>
+</body>
+</html>
