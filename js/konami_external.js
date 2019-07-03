@@ -38,6 +38,7 @@ var allowedKeys = {
 var konamiAudio = new Audio('Sounds/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Coins/sfx_coin_cluster6.m4a');
 var starFoxAudio = new Audio('Sounds/Nintendo 64 - Star Fox 64 - General Sound Effects/fly to next mission.mp3');
 var turtlesAudio = new Audio('Sounds/Genesis 32X SCD - Teenage Mutant Ninja Turtles Tournament Fighters - Everything/Voices/Turtles In A Half-Shell.m4a');
+var failAudio = new Audio('Sounds/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Death Screams/Human/sfx_deathscream_human14.m4a');
 
 var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
 var starFoxCode = ['d', 'o', 'a', 'b', 'a', 'r', 'r', 'e', 'l', 'r', 'o', 'l', 'l', 'enter'];
@@ -77,9 +78,7 @@ $(document).on('keydown', function(e) {
 	}
 });
 
-function activateKonamiCheat() {
-	$('#konami').text('Success! You Gained 30 Life in Contra!');
-	$('.success-picture').css('background-image', 'url(img/maxresdefault.jpg)');
+function textFlash() {
 	$('#konami').each(function () {
 		var elem = $(this);
 		setInterval(function () {
@@ -90,43 +89,34 @@ function activateKonamiCheat() {
 			}
 		}, 500);
 	});
+}
+
+function activateKonamiCheat() {
+	$('#konami').text('Success! You Gained 30 Life in Contra!');
+	$('.success-picture').css('background-image', 'url(img/maxresdefault.jpg)');
+	textFlash();
 	konamiAudio.play();
 };
 
 function activateStarFox() {
 	$('#konami').text('Do A Barrel Roll!');
 	$('.success-picture').css('background-image', 'url(img/WiiU_VC_N64_StarFox64_01.jpg)');
-	$('#konami').each(function () {
-		var elem = $(this);
-		setInterval(function () {
-			if (elem.css('visibility') == 'hidden') {
-				elem.css('visibility', 'visible');
-			} else {
-				elem.css('visibility', 'hidden')
-			}
-		}, 500);
-	});
+	textFlash();
 	starFoxAudio.play();
 };
 
 function activateTurtles() {
-	$('#konami').text('Turtle Time!');
+	$('#konami').text("It's Turtle Time!");
 	$('.success-picture').css('background-image', 'url(img/tmnt-arcadegame-screenshot-700x394.jpg)');
-	$('#konami').each(function () {
-		var elem = $(this);
-		setInterval(function () {
-			if (elem.css('visibility') == 'hidden') {
-				elem.css('visibility', 'visible');
-			} else {
-				elem.css('visibility', 'hidden')
-			}
-		}, 550);
-	});
+	textFlash();
 	turtlesAudio.play();
+	reset;
 };
 
 function failedCode() {
-	alert("Code Failed");
+	$('#konami').text('Fail!');
+	textFlash();
+	failAudio.play();
 };
 
 
