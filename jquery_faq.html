@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="css/jquery_faq.css">
+</head>
+<body>
+<header>Here are some Frequently Asked Questions about National Parks...</header>
+<dl>
+    <dt>1. Who is the Director of the National Park Service?</dt>
+        <dd>Dan (the Man) Smith, of course.</dd>
+    <dt>2. What are concessions?
+        <br>     <em>Concessions -</em>
+        <dd>a. a thing that is granted, especially in response to demands; a thing conceded.</dd>
+        <dd>b. a preferential rate or allowance given by an organization.</dd>
+    </dt>
+    <dt>3. Can I bring a pet to a National Park?</dt>
+        <dd>You can to some. Not to some others though.</dd>
+    <dt>4. What do I need to know about driving off-road in a National Park?</dt>
+        <dd>Lots of things. Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal, bruh.</dd>
+    <dt>5. How do I find out about contracting opportunities?</dt>
+        <dd>Visit www.grants.gov.</dd>
+    <dt>6. How many units are in National Parks?</dt>
+        <dd>419 absolute units.</dd>
+    <dt>7. Does every state have a National Park?</dt>
+        <dd>Technically, no.</dd>
+    <dt>8. What is the world's largest National Park?</dt>
+        <dd>Greenland.</dd>
+    <dt>9. What is the smallest National Park?</dt>
+        <dd>Hot Springs, AR</dd>
+    <dt>10. Which National Park is visited the least?</dt>
+        <dd>Gates of the Arctic National Park and Preserve, AK</dd>
+    <br>
+    <button class="makeVisible">See Invisible</button>
+
+</dl>
+<script src="js/jquery.js"></script>
+<script>
+    "use strict";
+    $('dd').addClass('invisible');
+    $('.makeVisible').click(function () {
+        $('dd').toggleClass('invisible');
+    });
+</script>
+</body>
+</html>
