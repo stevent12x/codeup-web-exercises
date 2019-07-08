@@ -109,7 +109,7 @@ function activateTurtles() {
 	$('.success-picture').css('background-image', 'url(img/tmnt-arcadegame-screenshot-700x394.jpg)');
 	textFlash();
 	turtlesAudio.play();
-	reset;
+	reset();
 };
 
 function failedCode() {

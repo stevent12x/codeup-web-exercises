@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
 <body>
-<header>Here are some Frequently Asked Questions about National Parks...</header>
+<h2>Here are some Frequently Asked Questions about National Parks...</h2>
 <dl>
     <dt>1. Who is the Director of the National Park Service?</dt>
         <dd>Dan (the Man) Smith, of course.</dd>
@@ -32,16 +32,67 @@
     <dt>10. Which National Park is visited the least?</dt>
         <dd>Gates of the Arctic National Park and Preserve, AK</dd>
     <br>
-    <button class="makeVisible">See Invisible</button>
+    <button id="button" class="makeVisible">This button makes magic things happen</button>
+</dl>
+
+<br>
+
+<h2>Here are some fun facts about National Parks...</h2>
+<br>
+    <h3 class="parkName">Redwood National and State Park - CA</h3>
+        <ul class="list">
+            <li>Redwoods are the tallest trees on earth</li>
+            <li>Hikes in Redwood Nat'l Park can last anywhere from one day to one week</li>
+            <li>Miles and Miles of bike trails are available for use</li>
+            <li>Guests can view wildlife ranging from gray whales and seals, to elk and meadowlarks</li>
+        </ul>
+    <h3 class="parkName">Big Bend National Park - TX</h3>
+        <ul class="list">
+            <li>Activities include: day hikes, stargazing, fishing, and horseback riding</li>
+            <li>Black bears are native to the area</li>
+            <li>Various lodgings, tent camping, and RV campsites are available</li>
+            <li>Big Bend is the 15th largest National Park in the United States</li>
+        </ul>
+    <h3 class="parkName">Joshua Tree National Park - CA</h3>
+        <ul class="list">
+            <li>Combines the ecosystems of the Mojave and the Colorado combine in Joshua Tree</li>
+            <li>Pets of any kind are not allowed on hiking trails</li>
+            <li>Camping, hiking, and Ranger-led programs are available</li>
+            <li>The Joshua Tree is like, totally U2's best album. I mean, the guitar intro to "Where the Streets Have No Name" alone... Geez man, it just kills me</li>
+        </ul>
+    <br>
+        <button class="parkBTN">Push Me</button>
+
 
 </dl>
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
+
     $('dd').addClass('invisible');
     $('.makeVisible').click(function () {
-        $('dd').toggleClass('invisible');
+	    $('dd').toggleClass('invisible');
+	    if ($('button').className === 'invisible') {
+	    	$(this).html('Make Invisible')
+        } if ($('button').className === 'makeVisible') {
+	    	$(this).html('Make Visible')
+        }
     });
+
+    $('.parkBTN').click(function () {
+    	$('ul').each(function(){
+    		$(this).children().last().css('background-color', '#ccff00');
+        });
+    });
+
+    $('h3').click(function () {
+	    $(this).next().css('font-weight', 'bold');
+    });
+
+    $('li').click(function () {
+            $(this).parent().children().first().css('color', '#6495ED');
+    });
+    
 </script>
 </body>
 </html>
