@@ -1,6 +1,5 @@
 "use strict";
 
-//mapping out the various keys that can be pressed//
 var allowedKeys = {
 	38: 'up',
 	40: 'down',
@@ -114,7 +113,7 @@ function activateTurtles() {
 };
 
 function failedCode() {
-	$('#konami').text('Fail!');
+	$('#konami').text('Fail!').css('color', 'firebrick');
 	textFlash();
 	failAudio.play();
 };
