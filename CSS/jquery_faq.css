@@ -1,4 +1,14 @@
 
+
 .invisible {
     visibility: hidden;
 }
+
+.row {
+    margin: 10px;
+}
+
+.container {
+    padding: 0px;
+}
+
