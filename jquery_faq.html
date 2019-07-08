@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
 <body>
+<br>
+<div>
+    <h1>Would You Like to Sign Up for Our Newsletter?</h1>
+    <span>X</span>
+    <h2 id="fadeIn">Would You Like to Register for Our Site?</h2>
+</div>
+<br>
 <h2>Here are some Frequently Asked Questions about National Parks...</h2>
 <dl>
     <dt>1. Who is the Director of the National Park Service?</dt>
@@ -85,14 +92,23 @@
         });
     });
 
+    $('ul').hide();
     $('h3').click(function () {
 	    $(this).next().css('font-weight', 'bold');
+	    $(this).next().slideToggle(1000);
     });
 
     $('li').click(function () {
             $(this).parent().children().first().css('color', '#6495ED');
     });
-    
+
+    $('span').click(function () {
+        $(this).parent().hide()
+    })
+
+    $('#fadeIn').hide().delay(8000).fadeIn(4000);
+
+
 </script>
 </body>
 </html>
