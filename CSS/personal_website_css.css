@@ -1,0 +1,38 @@
+body {
+    font-family: "Quicksand";
+}
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px double #393637;
+    position: fixed;
+    padding: 0px;
+    /*margin-right: 3px;*/
+    left: 70px;
+    top: 12px;
+    background-image: url("../img/IMG_0326.jpg");
+    background-size: cover;
+
+}
+
+.jumbotron {
+    margin-top: 20px;
+    border: 1px solid #393637;
+    background: #9F7D82;
+    color: #FAF9F8;
+}
+
+h1.display-8 {
+    padding-top: 5px;
+    padding-left: 120px;
+}
+
+p.lead {
+    padding-left: 140px;
+    padding-top: 0.15em;
+}
+
+.nav-link {
+    color: #d7cadf;
+}
