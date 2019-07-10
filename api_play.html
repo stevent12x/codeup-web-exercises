@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/jquery.js"></script>
+<script>
+
+    var ranPlanet = (Math.floor(Math.random()*70)+1)
+    $.ajax("https://swapi.co/api/planets/" + ranPlanet).done(function (planet, status) {
+    	console.log(status);
+        console.log("Planet #" + ranPlanet + " = " + planet.name);
+        console.log(planet.name + " has a population of " + planet.population + ", a(n) " + planet.climate + " climate, and relative gravity of " + planet.gravity);
+    }).fail(function (jqXhr, status, error) {
+        console.log("Test Failed!");
+        console.log(status);
+    }).always(function (status) {
+        console.log("Request Made.");
+    });
+
+
+</script>
+</body>
+</html>
