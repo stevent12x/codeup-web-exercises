@@ -1,7 +1,8 @@
 body {
     font-family: "Quicksand";
-    background-color: #FAF9F8;
+    background-color: #cdd7dc;
 }
+
 .box {
     width: 200px;
     height: 200px;
@@ -14,7 +15,6 @@ body {
     background-image: url("../img/IMG_0326.jpg");
     background-size: cover;
     transition: .5s ease-in-out;
-
 }
 
 .box:hover {
@@ -24,8 +24,9 @@ body {
 .jumbotron {
     margin-top: 20px;
     border: 1px double #393637;
-    background: #9F7D82;
-    color: #FAF9F8;
+    border-radius: 3px;
+    background: #B5A38F;
+    color: #3D4755;
 }
 
 h1.display-8 {
@@ -39,13 +40,18 @@ p.lead {
 }
 
 .nav-link {
-    color: #d7cadf;
+    color: whitesmoke;
+    transition: 1s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #3D4755;
 }
 
 .list-group-item {
     padding-top: 30px;
-    background-color: #9F7D82;
-    color: #FAF9F8;
+    background-color: #7D6253;
+    color: #d8e2e7;
     font-size: 0.8em;
 }
 
@@ -53,8 +59,8 @@ p.lead {
     border-left: 0.5px double black;
     border-right: 0.5px double black;
     border-bottom: 0px;
-
-    background-color: #9F7D82;
+    border-radius: 5px;
+    background-color: #7D6253;
 }
 
 .col-4 {
@@ -62,11 +68,12 @@ p.lead {
     border-right: 0.5px double black;
     border-left: 0.5px double black;
     border-bottom: 0.5px double black;
+    border-radius: 3px;
     margin-left: 15px;
     padding-left: 0px;
     padding-right: 0px;
-    color: #FAF9F8;
-    background-color: #9F7D82;
+    color: #d8e2e7;
+    background-color: #7D6253;
 }
 
 .circle-1 {
@@ -108,7 +115,7 @@ p.lead {
 .circle-3 {
     height: 25px;
     width: 25px;
-    border: 4px double white;
+    border: 4px double whitesmoke;
     border-radius: 50%;
     position: fixed;
     background: transparent;
@@ -158,13 +165,14 @@ p.lead {
 
 .big-box {
     border: 0.5px double black;
+    border-radius: 3px;
     padding: 0px;
     left: 90px;
-    background: #393637;
+    background: #3D4755;
 }
 
 .pic-rect {
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 10px;
     position: relative;
     height: 275px;
@@ -181,7 +189,7 @@ p.lead {
 }
 
 .main-para {
-    color: white;
+    color: whitesmoke;
     padding-top: 10px;
     padding-left: 100px;
     padding-right: 85px;
@@ -194,7 +202,7 @@ p.lead {
     width: 75px;
     margin: 10px;
     top: 50px;
-    border: 1px solid white;
+    border: 1px solid whitesmoke;
     border-radius: 15%;
     position: relative;
     float: right;
@@ -208,7 +216,7 @@ p.lead {
     width: 75px;
     margin: 10px;
     top: 50px;
-    border: 1px solid white;
+    border: 1px solid whitesmoke;
     border-radius: 15%;
     position: relative;
     float: right;
@@ -222,7 +230,7 @@ p.lead {
     width: 75px;
     margin: 10px;
     top: 50px;
-    border: 1px solid white;
+    border: 1px solid whitesmoke;
     border-radius: 15%;
     position: relative;
     float: right;
@@ -234,7 +242,8 @@ p.lead {
 .jumbotron2 {
     margin-top: 20px;
     border: 1px double #393637;
-    background: #9F7D82;
-    color: #FAF9F8;
+    border-radius: 3px;
+    background: #B5A38F;
+    color: #d8e2e7;
     position: relative;
 }
