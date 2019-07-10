@@ -1,24 +1,29 @@
 body {
     font-family: "Quicksand";
+    background-color: #FAF9F8;
 }
 .box {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 3px double #393637;
-    position: fixed;
+    position: absolute;
     padding: 0px;
-    /*margin-right: 3px;*/
-    left: 70px;
+    left: 65px;
     top: 12px;
     background-image: url("../img/IMG_0326.jpg");
     background-size: cover;
+    transition: .5s ease-in-out;
 
+}
+
+.box:hover {
+    transform: scale(1.1);
 }
 
 .jumbotron {
     margin-top: 20px;
-    border: 1px solid #393637;
+    border: 1px double #393637;
     background: #9F7D82;
     color: #FAF9F8;
 }
@@ -35,4 +40,201 @@ p.lead {
 
 .nav-link {
     color: #d7cadf;
+}
+
+.list-group-item {
+    padding-top: 30px;
+    background-color: #9F7D82;
+    color: #FAF9F8;
+    font-size: 0.8em;
+}
+
+.list-group-flush {
+    border-left: 0.5px double black;
+    border-right: 0.5px double black;
+    border-bottom: 0px;
+
+    background-color: #9F7D82;
+}
+
+.col-4 {
+    border-top: 0.5px double black;
+    border-right: 0.5px double black;
+    border-left: 0.5px double black;
+    border-bottom: 0.5px double black;
+    margin-left: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #FAF9F8;
+    background-color: #9F7D82;
+}
+
+.circle-1 {
+    height: 120px;
+    width: 120px;
+    border: 3px double whitesmoke;
+    border-radius: 50%;
+    position: fixed;
+    background: transparent;
+    right: 0%;
+    top: 0%;
+    z-index: 500;
+    transition: 2s ease-in-out;
+}
+
+.circle-1:hover {
+    transform: scale(1.5);
+    border-color: rebeccapurple;
+}
+
+.circle-2 {
+    height: 80px;
+    width: 80px;
+    border: 3px double black;
+    border-radius: 50%;
+    position: fixed;
+    background: transparent;
+    right: 77px;
+    top: 64px;
+    z-index: 1000;
+    transition: 2s ease-in-out;
+}
+
+.circle-2:hover {
+    transform: scale(1.5);
+    border-color: cornflowerblue;
+}
+
+.circle-3 {
+    height: 25px;
+    width: 25px;
+    border: 4px double white;
+    border-radius: 50%;
+    position: fixed;
+    background: transparent;
+    right: 134px;
+    top: 44px;
+    z-index: 1000;
+    transition: 2s ease-in-out;
+}
+
+.circle-3:hover {
+    transform: scale(2);
+    border-color: firebrick;
+}
+
+/*.circle-4 {*/
+/*    height: 120px;*/
+/*    width: 120px;*/
+/*    border: 1px double white;*/
+/*    border-radius: 50%;*/
+/*    position: fixed;*/
+/*    background: transparent;*/
+/*    right: 0%;*/
+/*    top: 0%;*/
+/*}*/
+
+/*.circle-5 {*/
+/*    height: 80px;*/
+/*    width: 80px;*/
+/*    border: 1px double white;*/
+/*    border-radius: 50%;*/
+/*    position: fixed;*/
+/*    background: transparent;*/
+/*    right: 0px;*/
+/*    top: 0px;*/
+/*}*/
+
+/*.circle-6 {*/
+/*    height: 25px;*/
+/*    width: 25px;*/
+/*    border: 1px double white;*/
+/*    border-radius: 50%;*/
+/*    position: fixed;*/
+/*    background: transparent;*/
+/*    right: 134px;*/
+/*    top: 44px;*/
+/*}*/
+
+.big-box {
+    border: 0.5px double black;
+    padding: 0px;
+    left: 90px;
+    background: #393637;
+}
+
+.pic-rect {
+    border: 1px solid white;
+    border-radius: 10px;
+    position: relative;
+    height: 275px;
+    width: 550px;
+    left: 85px;
+    top: 50px;
+    background-image: url("https://media.giphy.com/media/lF1XZv45kIwMw/giphy.gif");
+    background-size: cover;
+}
+
+.blank-space {
+    padding: 0px;
+    margin: 0px;
+}
+
+.main-para {
+    color: white;
+    padding-top: 10px;
+    padding-left: 100px;
+    padding-right: 85px;
+    margin-top: 85px;
+    font-size: 0.9em;
+}
+
+.facebook {
+    height: 75px;
+    width: 75px;
+    margin: 10px;
+    top: 50px;
+    border: 1px solid white;
+    border-radius: 15%;
+    position: relative;
+    float: right;
+    background-image: url("../img/http___pluspng.com_img-png_blue-facebook-social-icon-download-png-512.png");
+    background-size: cover;
+    background-color: #3A579B;
+}
+
+.twitter {
+    height: 75px;
+    width: 75px;
+    margin: 10px;
+    top: 50px;
+    border: 1px solid white;
+    border-radius: 15%;
+    position: relative;
+    float: right;
+    background-image: url("../img/twitter-high-quality-png-png-image-1867.png");
+    background-size: cover;
+    background-color: #33BDFD;
+}
+
+.linkedIn {
+    height: 75px;
+    width: 75px;
+    margin: 10px;
+    top: 50px;
+    border: 1px solid white;
+    border-radius: 15%;
+    position: relative;
+    float: right;
+    background-image: url("../img/linkedIn_PNG38.png");
+    background-color: #2797CF;
+    background-size: cover;
+}
+
+.jumbotron2 {
+    margin-top: 20px;
+    border: 1px double #393637;
+    background: #9F7D82;
+    color: #FAF9F8;
+    position: relative;
 }

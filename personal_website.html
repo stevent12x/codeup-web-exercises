@@ -6,29 +6,108 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/personal_website_css.css">
-    <script src="js/personal_website_js.js"></script>
 </head>
 <body>
 <div class="container-fluid">
+        <div class="circle-1" id="circle1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
+        <div class="circle-4"></div>
     <div class="jumbotron jumbotron-fluid" style="padding-top: 35px; padding-bottom: 35px; height: 11.5em;">
         <div class="container">
             <div class="box"></div>
             <h1 class="display-8">Steven Turner</h1>
-            <p class="lead">Welcome to my personal webspace! Feel free to take a look around.</p>
+            <p class="lead">Welcome to my personal webspace. Feel free to take a look around.</p>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">About Me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
+                    <a class="nav-link" href="https://stevent12x.github.io/codeup-web-exercises/" target="_blank">Portfolio</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="contact-btn">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel" style="color: black">New message</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label" style="color: black;">From:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label" style="color: black;">Message:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" style="color: black;">Close</button>
+                            <button type="button" class="btn btn-primary" style="color: black;">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal -->
         </div>
     </div>
+    <br>
+    <div class="row list-group-one">
+        <div class="col-4">
+            <ul class="list-group list-group-flush">
+<!--                <div class="circle-4"></div>-->
+                <div class="circle-5"></div>
+                <div class="circle-6"></div>
+                <li class="list-group-item">
+                    <p> To me, design should be...</p>
+                    <p>Who am I making this out to again? Why yes! Thanks for noticing. Oh right. I forgot about the battle. Oh yeah, good luck with that.</p>
+                    <p>You are the last hope of the universe. I'm a thing. Incidentally, you have a dime up your nose. I'm a thing.</p>
+                    <p>Fatal. I love this planet! I've got wealth, fame, and access to the depths of sleaze that those things bring. Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood! For example, if you killed your grandfather, you'd cease to exist!</p>
+                </li>
+                <li class="list-group-item">
+                    <p>Hey, you add a one and two zeros to that or we walk! Alright, let's mafia things up a bit. Joey, burn down the ship. Clamps, burn down the crew. Tell her you just want to talk. It has nothing to do with mating.</p>
+                    <p>No, I'm Santa Claus! Yes, except the Dave Matthews Band doesn't rock. I didn't ask for a completely reasonable excuse! I asked you to get busy! But I know you in the future. I cleaned your poop. Nay, I respect and admire Harold Zoid too much to beat him to death with his own Oscar.</p>
+                </li>
+                <li class="list-group-item">
+                    <p>Ow, my spirit! That's a popular name today. Little "e", big "B"? Why am I sticky and naked? Did I miss something fun? Robot 1-X, save my friends! And Zoidberg! Why am I sticky and naked? Did I miss something fun?</p>
+                    <p>You, a bobsleder!? That I'd like to see! Doomsday device? Ah, now the ball's in Farnsworth's court! Leela, Bender, we're going grave robbing. They're like sex, except I'm having them!</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-1 blank-space"></div>
+        <div class="col-6 big-box">
+            <div class="pic-rect"></div>
+            <div class="main-para">
+                <p>Lorem ipsum dolor amet cupidatat irony ipsum seitan narwhal literally activated charcoal PBR&B blue bottle fanny pack retro. Sriracha neutra magna coloring book consectetur est leggings. Put a bird on it in actually echo park. Retro elit ramps proident next level deep v. Excepteur cred master cleanse 90's PBR&B gentrify crucifix do four dollar toast nulla everyday carry pabst chartreuse.</p>
+
+                <p>Gastropub et live-edge culpa mumblecore tbh voluptate viral four dollar toast iPhone mixtape iceland messenger bag vexillologist keffiyeh. Literally knausgaard lumbersexual enamel pin, adipisicing vape pariatur celiac viral poutine bespoke fam irony forage. Organic narwhal aliquip vinyl pickled nulla kickstarter taiyaki hot chicken tattooed sartorial jean shorts offal irony. Scenester cred swag dolor viral drinking vinegar cronut la croix synth whatever selvage 3 wolf moon food truck paleo.</p>
+
+                <p>Bespoke hoodie irure, pop-up reprehenderit squid bushwick hammock. Pitchfork kombucha subway tile non, plaid edison bulb deep v paleo. Tousled asymmetrical shabby chic marfa DIY in. Seitan hashtag non dolore eiusmod. Cold-pressed brunch minim plaid aliqua man bun skateboard ut sint austin est fashion axe lo-fi lyft. Authentic magna butcher tofu ipsum laborum VHS. Irure plaid cray chartreuse cronut.</p>
+
+                <p> Pitchfork portland qui beard, before they sold out twee put a bird on it. Ea asymmetrical cronut, truffaut etsy viral eu squid vexillologist palo santo occupy cardigan deep v food truck bushwick. Forage dolore four loko bicycle rights, meggings affogato four dollar toast disrupt lorem adipisicing glossier artisan cupidatat irony typewriter. Hella raw denim four dollar toast lomo tempor dolore eiusmod pitchfork, elit shabby chic. Adipisicing etsy lorem, four dollar toast typewriter aliqua hell of vice. Distillery plaid hammock laborum wayfarers.</p>
+
+                <p>Venmo gentrify la croix quis aute. Tempor edison bulb cliche tumeric, dolore commodo ut yr vinyl ennui. DIY pop-up organic chambray, irony echo park humblebrag viral typewriter sint meggings. Photo booth cred vaporware esse green juice. Plaid pickled mixtape ipsum, deserunt biodiesel veniam kitsch man braid cillum.</p>
+
+                <p>Oh. You need a little dummy text for your mockup? How quaint.</p>
+
+                <p>I bet you’re still using Bootstrap too…</p>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron2 jumbotron-fluid" style="padding-top: 35px; padding-bottom: 35px; height: 11.5em;">
+        <a id="facebook" href="https://www.facebook.com/steven.turner.56808" target="_blank"><div class="facebook"></div></a>
+        <a id="twitter" href="https://twitter.com/Stevent12x" target="_blank"><div class="twitter"></div></a>
+        <a id="linkedIn" href="https://www.linkedin.com/in/steven-turner-65701a99/" target="_blank"><div class="linkedIn"></div></a>
+    </div>
 </div>
+<script src="js/jquery.js"></script>
+<script src="js/personal_website_js.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
