@@ -3,18 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather in SA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="./css/weather_call.css">-->
 </head>
+<div class="container-fluid">
 <body>
-    <div id="weather"></div>
-    <script src="./js/keys.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-	    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936").done(function (data) {
-            console.log(data);
-            var dateObject = new Date(data.currently.time * 1000);
-            console.log(dateObject)
-	    });
+<div class="row border text-center">
+    <div class="col-4"></div>
+    <div class="col-4 text-center">Weather Map</div>
+    <div class="col-4"></div>
+</div>
+<div class="row border text-center">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" class="border">Today</th>
+            <th scope="col" class="border">Tomorrow</th>
+            <th scope="col" class="border">TDAT</th>
+        </tr>
+        <tr id="weather"></tr>
+        <tr id="precipitation"></tr>
+        <tr id="summary"></tr>
+        </thead>
+    </table>
+</div>
 
-    </script>
+<script src="./js/keys.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function () {
+        function refreshWeather() {
+        	$.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936").done(function (data, status, jqHxr) {
+                console.log(data);
+                console.log(status);
+
+                // All the Vars //
+                var dateObject = new Date(data.currently.time * 1000);
+                var weather = data;
+                var currentTemp = weather.currently.temperature;
+                var currentPrecip = weather.currently.icon.replace("-", " ").replace("-", " ");
+                var todaysLow = weather.daily.data[0].apparentTemperatureLow;
+                var todaysHigh = weather.daily.data[0].apparentTemperatureHigh
+                var tomLow = weather.daily.data[1].apparentTemperatureLow;
+                var tomHigh = weather.daily.data[1].apparentTemperatureHigh;
+                var tdatLow = weather.daily.data[2].apparentTemperatureLow;
+                var tdatHigh = weather.daily.data[2].apparentTemperatureHigh;
+                var todayPrecip = weather.daily.data[0].precipProbability;
+                var tomPrecip = weather.daily.data[1].precipProbability;
+                var tdatPrecip = weather.daily.data[2].precipProbability;
+                var todaySummary = weather.daily.data[0].summary;
+                var tomSummary = weather.daily.data[1].summary;
+                var tdatSummary = weather.daily.data[2].summary;
+
+                // Temperature Low - High //
+                $('#weather').html('');
+                $('#weather').append('<th scope="col" class="border align-middle">Low: ' + todaysLow + ' - High: ' + todaysHigh + '<br>Currently: ' + currentTemp + '</th><th scope="col" class="border align-middle">Low: ' + tomLow + ' - High: ' + tomHigh + '</th><th scope="col" class="border align-middle">Low: ' + tdatLow + ' - High: ' + tdatHigh + '</th>');
+
+                // Precipitation //
+                $('#precipitation').html('');
+                $('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + todayPrecip + '% <br> Currently: ' + currentPrecip + '</th><th scope="col" class="border align-middle">Chance of Rain: ' + tomPrecip + '%</th><th scope="col" class="border align-middle">Chance of Rain: ' + tdatPrecip + '%</th>');
+
+                // Summary //
+                $('#summary').html('');
+                $('#summary').append('<th scope="col" class="border">' + todaySummary + '</th><th scope="col" class="border">' + tomSummary + '</th><th scope="col" class="border">' + tdatSummary + '</th>');
+            });
+        }
+
+        refreshWeather();
+        window.setInterval(function () {
+            refreshWeather()
+        }, 5000);
+    })();
+</script>
 </body>
+</div>
 </html>
