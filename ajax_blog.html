@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <title>Blogg</title>
+</head>
+<body>
+    <div id="posts"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script>
+        (function () {
+            $.ajax('./Data/blog.json').done(function (data, status, jqHxr) {
+                console.log(data);
+                console.log(status);
+                $('#posts').html('');
+                for (var i=0; i<data.length; i+=1) {
+                	$('#posts').append('<p>' + data[i].title + '<br>' + data[i].date + '</p><p>' + data[i].content + '</p><p>Stored In: (' + data[i].categories + ')</p>');
+                }
+            })
+        })();
+    </script>
+</body>
+</html>

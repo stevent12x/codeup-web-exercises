@@ -1,0 +1,33 @@
+* {
+    font-family: "Space Mono", monospace;
+}
+
+.container {
+    position: relative;
+}
+
+th {
+    text-align: center;
+}
+
+.col-3 {
+    margin: 0px;
+    padding: 0px;
+    width: 229px;
+}
+
+.row {
+    margin: 0px;
+    padding: 0px;
+}
+
+#refresh {
+    position: relative;
+    float: right;
+    left: 0px;
+
+}
+
+.buttonRow {
+    position: relative;
+}

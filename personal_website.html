@@ -84,7 +84,7 @@
         <div class="col-6 big-box">
             <div class="pic-rect"></div>
             <div class="main-para">
-                <p>Lorem ipsum dolor amet cupidatat irony ipsum seitan narwhal literally activated charcoal PBR&B blue bottle fanny pack retro. Sriracha neutra magna coloring book consectetur est leggings. Put a bird on it in actually echo park. Retro elit ramps proident next level deep v. Excepteur cred master cleanse 90's PBR&B gentrify crucifix do four dollar toast nulla everyday carry pabst chartreuse.</p>
+                <div id="posts"></div>
 
                 <p>Gastropub et live-edge culpa mumblecore tbh voluptate viral four dollar toast iPhone mixtape iceland messenger bag vexillologist keffiyeh. Literally knausgaard lumbersexual enamel pin, adipisicing vape pariatur celiac viral poutine bespoke fam irony forage. Organic narwhal aliquip vinyl pickled nulla kickstarter taiyaki hot chicken tattooed sartorial jean shorts offal irony. Scenester cred swag dolor viral drinking vinegar cronut la croix synth whatever selvage 3 wolf moon food truck paleo.</p>
 
@@ -106,10 +106,28 @@
         <a id="linkedIn" href="https://www.linkedin.com/in/steven-turner-65701a99/" target="_blank"><div class="linkedIn"></div></a>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+	(function () {
+		$.ajax('./Data/blog.json').done(function (data, status, jqHxr) {
+			console.log(data);
+			console.log(status);
+			$('#posts').html('');
+			for (var i=0; i<data.length; i+=1) {
+				$('#posts').append('<p>' + data[i].title + '<br>' + data[i].date + '</p><p>' + data[i].content + '</p><p>Stored In: (' + data[i].categories + ')</p>');
+			}
+		})
+	})();
+</script>
+
 <script src="js/jquery.js"></script>
 <script src="js/personal_website_js.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
