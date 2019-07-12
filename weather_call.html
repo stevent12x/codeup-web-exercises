@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <title>Weather in SA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!--    <link rel="stylesheet" href="./css/weather_call.css">-->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+
+        #map {
+            top: 5%;
+            width: 499px;
+            height: 350px;
+            /*left: 350px;*/
+        }
+    </style>
+
+    <!--    <link rel="stylesheet" href="./css/weather_call.css">-->
 </head>
 <div class="container-fluid">
 <body>
@@ -26,13 +37,31 @@
         <tr id="summary"></tr>
         </thead>
     </table>
+    <div id="map" class="col-8"></div>
 </div>
 
-<script src="./js/keys.js"></script>
+<script src="js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script>
+	// Interactive Map //
+	mapboxgl.accessToken = mapboxToken;
+	var options = {
+		container: "map",
+		style: 'mapbox://styles/mapbox/streets-v9',
+		zoom: 10,
+		center: [-98.4936, 29.4241]
+	};
+	var map = new mapboxgl.Map(options);
+</script>
+<script>
+
     (function () {
-        function refreshWeather() {
+
+        // Weather Info //
+	    function refreshWeather() {
         	$.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936").done(function (data, status, jqHxr) {
                 console.log(data);
                 console.log(status);
@@ -40,14 +69,14 @@
                 // All the Vars //
                 var dateObject = new Date(data.currently.time * 1000);
                 var weather = data;
-                var currentTemp = weather.currently.temperature;
+                var currentTemp = parseFloat(weather.currently.temperature).toFixed(1) + '&deg;';
                 var currentPrecip = weather.currently.icon.replace("-", " ").replace("-", " ");
-                var todaysLow = weather.daily.data[0].apparentTemperatureLow;
-                var todaysHigh = weather.daily.data[0].apparentTemperatureHigh
-                var tomLow = weather.daily.data[1].apparentTemperatureLow;
-                var tomHigh = weather.daily.data[1].apparentTemperatureHigh;
-                var tdatLow = weather.daily.data[2].apparentTemperatureLow;
-                var tdatHigh = weather.daily.data[2].apparentTemperatureHigh;
+                var todaysLow = parseFloat(weather.daily.data[0].apparentTemperatureLow).toFixed(1) + '&deg;';
+                var todaysHigh = parseFloat(weather.daily.data[0].apparentTemperatureHigh).toFixed(1) + '&deg;';
+                var tomLow = parseFloat(weather.daily.data[1].apparentTemperatureLow).toFixed(1) + '&deg;';
+                var tomHigh = parseFloat(weather.daily.data[1].apparentTemperatureHigh).toFixed(1) + '&deg;';
+                var tdatLow = parseFloat(weather.daily.data[2].apparentTemperatureLow).toFixed(1) + '&deg;';
+                var tdatHigh = parseFloat(weather.daily.data[2].apparentTemperatureHigh).toFixed(1) +'&deg;';
                 var todayPrecip = weather.daily.data[0].precipProbability;
                 var tomPrecip = weather.daily.data[1].precipProbability;
                 var tdatPrecip = weather.daily.data[2].precipProbability;
