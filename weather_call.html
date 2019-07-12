@@ -6,17 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/weather_call_css.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
-<!--    <style>-->
 
-<!--        #map {-->
-<!--            top: 5%;-->
-<!--            width: 499px;-->
-<!--            height: 350px;-->
-<!--            /*left: 350px;*/-->
-<!--&lt;!&ndash;        }&ndash;&gt;-->
-<!--    </style>-->
-
-    <!--    <link rel="stylesheet" href="./css/weather_call.css">-->
 </head>
 <div class="container-fluid">
 <body>
@@ -38,7 +28,6 @@
         <tr id="summary"></tr>
         </thead>
     </table>
-<!--    <div id="map"></div>-->
 </div>
 <div id="map"></div>
 <pre id="coordinates"></pre>
@@ -58,12 +47,23 @@
 		container: "map",
 		style: 'mapbox://styles/mapbox/streets-v9',
 		zoom: 10,
-		center: [0, 0]
+		center: [-98.42, 29.42]
 	};
 	var map = new mapboxgl.Map(options);
 
 
 	(function () {
+
+		function geocode(search, token) {
+			var baseUrl = 'https://api.mapbox.com';
+			var endPoint = '/geocoding/v5/mapbox.places/';
+			return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+				.then(function (res) {
+					console.log(res);
+					return res.json();
+				})
+		}
+		geocode("San Francisco", mapboxToken);
 
 		// Weather Info //
 		function refreshWeather() {
@@ -85,9 +85,9 @@
 				var todayPrecip = weather.daily.data[0].precipProbability;
 				var tomPrecip = weather.daily.data[1].precipProbability;
 				var tdatPrecip = weather.daily.data[2].precipProbability;
-				var todaySummary = weather.daily.data[0].summary;
-				var tomSummary = weather.daily.data[1].summary;
-				var tdatSummary = weather.daily.data[2].summary;
+				var todaySummary = weather.daily.data[0].summary.replace("throughout the day", "").replace(".","");
+				var tomSummary = weather.daily.data[1].summary.replace("throughout the day", "").replace(".","");
+				var tdatSummary = weather.daily.data[2].summary.replace("throughout the day", "").replace(".","");
 
 				// Temperature Low - High //
 				$('#weather').html('');
@@ -109,19 +109,7 @@
 		}, 5000);
 
 
-		function geocode(search, token) {
-			var baseUrl = 'http://api.mapbox.com';
-			var endPoint = '/geocoding/V5/mapbox.places/';
-			return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + '?' + 'access_token=' + token)
-				.then(function (res) {
-					return res.json();
-				})
-
-		}
-
-        })
-
-	})();
+    })();
 
 </script>
 </body>
