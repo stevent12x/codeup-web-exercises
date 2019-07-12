@@ -30,7 +30,6 @@
     </table>
 </div>
 <div id="map"></div>
-<pre id="coordinates"></pre>
 
 
 <script src="js/keys.js"></script>
@@ -54,20 +53,12 @@
 
 	(function () {
 
-		function geocode(search, token) {
-			var baseUrl = 'https://api.mapbox.com';
-			var endPoint = '/geocoding/v5/mapbox.places/';
-			return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-				.then(function (res) {
-					console.log(res);
-					return res.json();
-				})
-		}
-		geocode("San Francisco", mapboxToken);
+		geocode("San Francisco", mapboxToken).then(function (value) {
+			console.log(value)})
 
 		// Weather Info //
 		function refreshWeather() {
-			$.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936").done(function (data, status, jqHxr) {
+			$.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + Array(2)[1] + "," + Array(2)[0]).done(function (data, status, jqHxr) {
 				console.log(data);
 				console.log(status);
 
@@ -85,9 +76,9 @@
 				var todayPrecip = weather.daily.data[0].precipProbability;
 				var tomPrecip = weather.daily.data[1].precipProbability;
 				var tdatPrecip = weather.daily.data[2].precipProbability;
-				var todaySummary = weather.daily.data[0].summary.replace("throughout the day", "").replace(".","");
-				var tomSummary = weather.daily.data[1].summary.replace("throughout the day", "").replace(".","");
-				var tdatSummary = weather.daily.data[2].summary.replace("throughout the day", "").replace(".","");
+				var todaySummary = weather.daily.data[0].summary.replace("throughout the day", "").replace(".", "");
+				var tomSummary = weather.daily.data[1].summary.replace("throughout the day", "").replace(".", "");
+				var tdatSummary = weather.daily.data[2].summary.replace("throughout the day", "").replace(".", "");
 
 				// Temperature Low - High //
 				$('#weather').html('');
@@ -100,15 +91,16 @@
 				// Summary //
 				$('#summary').html('');
 				$('#summary').append('<th scope="col" class="border">' + todaySummary + '</th><th scope="col" class="border">' + tomSummary + '</th><th scope="col" class="border">' + tdatSummary + '</th>');
-			});
-		}
-
-		refreshWeather();
-		window.setInterval(function () {
-			refreshWeather()
-		}, 5000);
 
 
+				refreshWeather();
+				window.setInterval(function () {
+					refreshWeather()
+				}, 5000);
+
+
+			})
+        }
     })();
 
 </script>
