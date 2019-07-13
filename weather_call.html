@@ -58,11 +58,36 @@
 
 	var map = new mapboxgl.Map(options);
 
-
 	map.addControl(new MapboxGeocoder({
 		accessToken: mapboxToken,
 		mapboxgl: mapboxgl
 	}));
+
+	// source layer and single-point styling //
+
+    map.on('load', function () {
+        map.addSource('single-point', {
+        	type: 'geojson',
+            data: {
+        		type: 'FeatureCollection',
+                features: []
+            }
+        });
+        map.addLayer({
+            id: 'point',
+            source: 'single-point',
+            type: 'circle',
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#448ee4'
+            }
+        });
+        map.on('result,', function (e) {
+            map.getSource('single-point').setData(e.result.geometry);
+	        console.log(map.data.features)
+
+        });
+    });
 
 	geocode('San Francisco', mapboxToken).then(function (data) {
 		console.log(data)
