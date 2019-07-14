@@ -64,34 +64,33 @@
 	}));
 
 	// source layer and single-point styling //
+	map.on('load', function () {
+		map.addSource('single-point', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: []
+			}
+		});
+		map.addLayer({
+			id: 'point',
+			source: 'single-point',
+			type: 'circle',
+			paint: {
+				'circle-radius': 10,
+				'circle-color': '#448ee4'
+			}
+		});
+		map.on('result,', function (e) {
+			map.getSource('single-point').setData(e.result.geometry);
+			console.log(map.data.features)
 
-    map.on('load', function () {
-        map.addSource('single-point', {
-        	type: 'geojson',
-            data: {
-        		type: 'FeatureCollection',
-                features: []
-            }
-        });
-        map.addLayer({
-            id: 'point',
-            source: 'single-point',
-            type: 'circle',
-            paint: {
-                'circle-radius': 10,
-                'circle-color': '#448ee4'
-            }
-        });
-        map.on('result,', function (e) {
-            map.getSource('single-point').setData(e.result.geometry);
-	        console.log(map.data.features)
-
-        });
-    });
-
-	geocode('San Francisco', mapboxToken).then(function (data) {
-		console.log(data)
+		});
 	});
+    //
+	// geocode('San Francisco', mapboxToken).then(function (data) {
+	// 	console.log(data)
+	// });
 
 	function refreshWeather() {
 		$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data, status, jqHxr) {
@@ -107,11 +106,10 @@
 				$('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + weather.daily.data[i].precipProbability + '%</th>');
 
 				$('#summary').append('<th scope="col" class="border align-middle">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
-			}
-		}
-        )}
-    refreshWeather()
-    })();
+			}})}
+			refreshWeather()
+            geocode(map, mapboxToken)
+	})();
 </script>
 </body>
 </div>
