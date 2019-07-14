@@ -74,6 +74,7 @@
 				features: []
 			}
 		});
+
 		map.addLayer({
 			id: 'point',
 			source: 'single-point',
@@ -83,10 +84,9 @@
 				'circle-color': '#448ee4'
 			}
 		});
-		map.on('result,', function (e) {
+		map.on('result', function (e) {
 			map.getSource('single-point').setData(e.result.geometry);
-			console.log(map.data.features)
-
+			console.log(e.result)
 		});
 	});
 
@@ -100,17 +100,20 @@
 			var weather = data;
 			for (var i = 0; i < 3; i += 1) {
 				$('#weather').append('<th scope="col" class="border align-middle">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
+				// $('#weather').append('<th scope="col" class+"border align-middle">Currently: ' + parseFloat(weather.currently.temperature).toFixed(1) + '&deg;' + '</th>');
 
 				$('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + weather.daily.data[i].precipProbability + '%</th>');
 
 				$('#summary').append('<th scope="col" class="border align-middle">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
 			}
-
 		})
-
 	}
-	geocode(map, mapboxToken)
-	refreshWeather()
+	// geocode(map, mapboxToken)
+    refreshWeather();
+	// setInterval(function () {
+    //     refreshWeather()
+	// }, 1000);
+
 
 	})();
 </script>
