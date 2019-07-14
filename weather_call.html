@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="CSS/weather_call_css.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div class="container-fluid">
+<div id="mainContainer" class="container-fluid">
 <body>
 <div class="row border text-center">
-    <div class="col-4"></div>
+    <div id="date" class="col-4"></div>
     <div class="col-4 text-center">Weather Map</div>
-    <div class="col-4"></div>
+    <div id="currentTemp" class="col-4"></div>
 </div>
 <div class="row border text-center">
     <table class="table">
@@ -43,10 +43,13 @@
 
 <script>
 
+
+// does this even need to be in an iffy? i'm so f-ing lost on this one //
 (function () {
 
 
 	// Interactive Map //
+
 	mapboxgl.accessToken = mapboxToken;
 	// var coordinates = $('#coordinates')
 	var options = {
@@ -61,65 +64,81 @@
 	var geocoder = (new MapboxGeocoder({
 		accessToken: mapboxToken,
 		mapboxgl: mapboxgl,
-        marker: false
+		marker: true
 	}));
 	map.addControl(geocoder)
 
-	// source layer and single-point styling //
-	map.on('load', function () {
-		map.addSource('single-point', {
-			type: 'geojson',
-			data: {
-				type: 'FeatureCollection',
-				features: []
-			}
-		});
 
-		map.addLayer({
-			id: 'point',
-			source: 'single-point',
-			type: 'circle',
-			paint: {
-				'circle-radius': 10,
-				'circle-color': '#448ee4'
-			}
+// source layer and single-point styling //
+// i don't even know if geocode needs to be a function here //
+
+	function geocode() {
+		map.on('load', function () {
+			map.addSource('single-point', {
+				type: 'geojson',
+				data: {
+					type: 'FeatureCollection',
+					features: []
+				}
+			});
+
+			map.addLayer({
+				id: 'point',
+				source: 'single-point',
+				type: 'circle',
+				paint: {
+					'circle-radius': 10,
+					'circle-color': '#448ee4'
+				}
+			});
+			map.on('result', function (e) {
+				map.getSource('single-point').setData(e.options.center);
+				console.log(e)
+			});
 		});
-		map.on('result', function (e) {
-			map.getSource('single-point').setData(e.result.geometry);
-			console.log(e.result)
-		});
-	});
+	};
+
+// function that grabs the weather report from DarkSky API and updates the page //
 
 	function refreshWeather() {
-		$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data, status, jqHxr) {
+		$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data) {
 			console.log(data);
-			console.log(status);
+			var weather = data;
 			$('#weather').html("");
 			$('#precipitation').html("");
 			$('#summary').html("");
-			var weather = data;
+			$('#currentTemp').html("");
 			for (var i = 0; i < 3; i += 1) {
 				$('#weather').append('<th scope="col" class="border align-middle">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
-				// $('#weather').append('<th scope="col" class+"border align-middle">Currently: ' + parseFloat(weather.currently.temperature).toFixed(1) + '&deg;' + '</th>');
-
 				$('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + weather.daily.data[i].precipProbability + '%</th>');
-
 				$('#summary').append('<th scope="col" class="border align-middle">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
 			}
+			$('#currentTemp').html("");
+			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg; <p>' + weather.currently.summary + '</p>');
+
+			var dateObject = new Date(weather.currently.time * 1000); // Whyy is this not updating as the page refreshes? //
+			$('#date').html("");
+			$('#date').append(dateObject);
+
 		})
-	}
-	// geocode(map, mapboxToken)
-    refreshWeather();
-	// setInterval(function () {
-    //     refreshWeather()
-	// }, 1000);
+	};
 
 
-	})();
+// calls the functions //
+	refreshWeather();
+	setInterval(function () {
+		refreshWeather(),
+			geocode()
+	}, 1000);
+
+
+})();
+
 </script>
 </body>
 </div>
 </html>
+
 
 
 <!--function refreshWeather() {-->
