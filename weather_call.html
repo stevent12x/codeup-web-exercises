@@ -48,7 +48,7 @@
 
 	// Interactive Map //
 	mapboxgl.accessToken = mapboxToken;
-	var coordinates = $('#coordinates')
+	// var coordinates = $('#coordinates')
 	var options = {
 		container: "map",
 		style: 'mapbox://styles/mapbox/streets-v9',
@@ -58,10 +58,12 @@
 
 	var map = new mapboxgl.Map(options);
 
-	map.addControl(new MapboxGeocoder({
+	var geocoder = (new MapboxGeocoder({
 		accessToken: mapboxToken,
-		mapboxgl: mapboxgl
+		mapboxgl: mapboxgl,
+        marker: false
 	}));
+	map.addControl(geocoder)
 
 	// source layer and single-point styling //
 	map.on('load', function () {
@@ -87,10 +89,6 @@
 
 		});
 	});
-    //
-	// geocode('San Francisco', mapboxToken).then(function (data) {
-	// 	console.log(data)
-	// });
 
 	function refreshWeather() {
 		$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data, status, jqHxr) {
@@ -106,9 +104,14 @@
 				$('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + weather.daily.data[i].precipProbability + '%</th>');
 
 				$('#summary').append('<th scope="col" class="border align-middle">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
-			}})}
-			refreshWeather()
-            geocode(map, mapboxToken)
+			}
+
+		})
+
+	}
+	geocode(map, mapboxToken)
+	refreshWeather()
+
 	})();
 </script>
 </body>
