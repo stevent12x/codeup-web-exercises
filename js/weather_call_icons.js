@@ -1,12 +1,42 @@
-var weatherIcon = [{
-	clearDay: url("./img/climacons - master / SVG / Sun.svg"),
-	clearNight: url("./img/climacons-master/SVG/Moon-Full.svg"),
-	rain: url("./img/climacons-master/SVG/Cloud-Rain.svg"),
-	snow: url("./img/climacons-master/SVG/Cloud-Snow.svg"),
-	sleet: url("./img/climacons-master/SVG/Cloud-Hail.svg"),
-	wind: url("./img/climacons-master/SVG/Wind.svg"),
-	fog: url("./img/climacons-master/SVG/Cloud-Fog.svg"),
-	cloudy: url("./img/climacons-master/SVG/Cloud.svg"),
-	partlyCloudyDay: url("./img/climacons-master/SVG/Cloud-Sun.svg"),
-	partlyCloudyNight: url("./img/climacons-master/SVG/Cloud-Moon.svg")
+var weatherIcon = [
+	{
+		"name": " clear day",
+		"image": "./img/climacons - master / SVG / Sun.svg"
+	},
+	{
+		"name": "clear night",
+		"image": "./img/climacons-master/SVG/Moon-Full.svg"
+	},
+	{
+		"name": "rain",
+		"image": "./img/climacons-master/SVG/Cloud-Rain.svg"
+	},
+	{
+		"name": "snow",
+		"image": "./img/climacons-master/SVG/Cloud-Snow.svg"
+	},
+	{
+		"name": "sleet",
+		"image": "./img/climacons-master/SVG/Cloud-Hail.svg"
+	},
+	{
+		"name": "wind",
+		"image": "./img/climacons-master/SVG/Wind.svg"
+	},
+	{
+		"name": "fog",
+		"image": "./img/climacons-master/SVG/Cloud-Fog.svg"
+	},
+	{
+		"name": "cloudy",
+		"image": "./img/climacons-master/SVG/Cloud.svg"
+	},
+	{
+		"name": "partly cloudy day",
+		"image": "./img/climacons-master/SVG/Cloud-Sun.svg"
+
+	},
+	{
+		"name": "partly cloudy night",
+		"image": "./img/climacons-master/SVG/Cloud-Sun.svg"
 }];
