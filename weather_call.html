@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #297099">
 <head>
     <meta charset="UTF-8">
     <title>Weather in SA</title>
@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="CSS/weather_call_css.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div id="mainContainer" class="container-fluid">
+<div id="mainContainer" class="container-fluid" style="background-color: #297099; color: #C7DBE9">
 <body>
-<div class="row border text-center">
+<div class="row border text-center" style="color: #C7DBE9">
     <div id="date" class="col-4"></div>
     <div class="col-4 text-center">Weather Map</div>
     <div id="currentTemp" class="col-4"></div>
@@ -18,9 +18,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col" class="border">Today</th>
-            <th scope="col" class="border">Tomorrow</th>
-            <th scope="col" class="border">TDAT</th>
+            <th scope="col" class="border" style="color: #C7DBE9">Today</th>
+            <th scope="col" class="border" style="color: #C7DBE9">Tomorrow</th>
+            <th scope="col" class="border" style="color: #C7DBE9">TDAT</th>
         </tr>
         <tr id="weather"></tr>
         <tr id="precipitation"></tr>
@@ -38,6 +38,7 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./js/mapbox-geocoder-utils.js"></script>
+<!--<script SRC="js/weather_call_icons.js"></script>-->
 
 
 
@@ -45,6 +46,7 @@
 
 
 // does this even need to be in an iffy? i'm so f-ing lost on this one //
+
 (function () {
 
 
@@ -55,7 +57,7 @@
 	var options = {
 		container: "map",
 		style: 'mapbox://styles/mapbox/streets-v9',
-		zoom: 10,
+		zoom: 5,
 		center: [-98.49, 29.42]
 	};
 
@@ -64,39 +66,36 @@
 	var geocoder = (new MapboxGeocoder({
 		accessToken: mapboxToken,
 		mapboxgl: mapboxgl,
-		marker: true
 	}));
-	map.addControl(geocoder)
+	// map.addControl(geocoder)
 
 
 // source layer and single-point styling //
 // i don't even know if geocode needs to be a function here //
 
-	function geocode() {
-		map.on('load', function () {
-			map.addSource('single-point', {
-				type: 'geojson',
-				data: {
-					type: 'FeatureCollection',
-					features: []
-				}
-			});
-
-			map.addLayer({
-				id: 'point',
-				source: 'single-point',
-				type: 'circle',
-				paint: {
-					'circle-radius': 10,
-					'circle-color': '#448ee4'
-				}
-			});
-			map.on('result', function (e) {
-				map.getSource('single-point').setData(e.options.center);
-				console.log(e)
-			});
-		});
-	};
+    // map.on('load', function () {
+    //     map.addSource('single-point', {
+    //         type: 'geojson',
+    //         data: {
+    //             type: 'FeatureCollection',
+    //             features: []
+    //         }
+    //     });
+    //     map.addLayer({
+    //         id: 'point',
+    //         source: 'single-point',
+    //         type: 'circle',
+    //         paint: {
+    //             'circle-radius': 10,
+    //             'circle-color': '#448ee4'
+    //         }
+    //     });
+    //     map.on('result', function (ev) {
+    //         map.getSource('single-point').setData(ev.result.geometry);
+    //         console.log(ev.result.geometry.coordinates)
+    //     });
+    //     // console.log(ev.result.geometry.coordinates)
+    // });
 
 // function that grabs the weather report from DarkSky API and updates the page //
 
@@ -109,27 +108,81 @@
 			$('#summary').html("");
 			$('#currentTemp').html("");
 			for (var i = 0; i < 3; i += 1) {
-				$('#weather').append('<th scope="col" class="border align-middle">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
-				$('#precipitation').append('<th scope="col" class="border align-middle">Chance of Rain: ' + weather.daily.data[i].precipProbability + '%</th>');
-				$('#summary').append('<th scope="col" class="border align-middle">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
+				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: black; color: #C7DBE9">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
+				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #C7DBE9">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3)*100 + '%</th>');
+				$('#summary').append('<th scope="col" class="border align-middle" style="color: #C7DBE9">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
 			}
+
 			$('#currentTemp').html("");
 			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg; <p>' + weather.currently.summary + '</p>');
 
-			var dateObject = new Date(weather.currently.time * 1000); // Whyy is this not updating as the page refreshes? //
-			$('#date').html("");
-			$('#date').append(dateObject);
-
+			// var dateObject = new Date(weather.currently.time * 1000); // Whyy is this not updating as the page refreshes? //
+			// $('#date').html("");
+			// $('#date').append(dateObject);
 		})
 	};
+	map.addControl(geocoder)
+
+	map.on('load', function () {
+		map.addSource('single-point', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: []
+			}
+		});
+		map.addLayer({
+			id: 'point',
+			source: 'single-point',
+			type: 'circle',
+			paint: {
+				'circle-radius': 10,
+				'circle-color': '#448ee4'
+			}
+		});
+		map.on('result', function (ev) {
+			map.getSource('single-point').setData(ev.result.geometry);
+			console.log(ev.result.geometry.coordinates)
+		});
+		// console.log(ev.result.geometry.coordinates)
+	});
+
+	function clock() {
+		$('#date').html("");
+		var currentTime = new Date(),
+			month = currentTime.getMonth(),
+			day = currentTime.getDate(),
+			hours = currentTime.getHours(),
+			minutes = currentTime.getMinutes(),
+			seconds = currentTime.getSeconds();
+
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+		var suffix = "AM";
+		if (hours >= 12) {
+			suffix = "PM";
+			hours = hours - 12;
+		}
+		if (hours == 0) {
+			hours = 12;
+		}
+		$('#date').append(month + "/" + day + "/19" + "<br>" + hours + ":" + minutes + ":" + seconds + " " + suffix);
+	}
 
 
 // calls the functions //
+    clock();
 	refreshWeather();
 	setInterval(function () {
-		refreshWeather(),
-			geocode()
-	}, 1000);
+        clock()
+    }, 1000);
+	setInterval(function () {
+		refreshWeather()
+	}, 20*1000);
 
 
 })();
