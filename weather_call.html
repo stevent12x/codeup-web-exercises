@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #297099">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Weather in SA</title>
@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="CSS/weather_call_css.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div id="mainContainer" class="container-fluid" style="background-color: #297099; color: #C7DBE9">
+<div id="mainContainer" class="container-fluid" style="color: #3c4149">
 <body>
-<div class="row border text-center" style="color: #C7DBE9">
+<div class="row border text-center" style="color: #5a5f7a">
     <div id="date" class="col-4"></div>
-    <div class="col-4 text-center">Weather Map</div>
+    <div id="heading" class="col-4 text-center">Weather Map</div>
     <div id="currentTemp" class="col-4"></div>
 </div>
 <div class="row border text-center">
     <table class="table">
         <thead>
         <tr>
-            <th scope="col" class="border" style="color: #C7DBE9">Today</th>
-            <th scope="col" class="border" style="color: #C7DBE9">Tomorrow</th>
-            <th scope="col" class="border" style="color: #C7DBE9">TDAT</th>
+            <th scope="col" class="border" style="color: #5a5f7a">Today <div id="todaysImg"></div></th>
+            <th scope="col" class="border" style="color: #5a5f7a">Tomorrow <div id="tomorrowImg"></div></th>
+            <th scope="col" class="border" style="color: #5a5f7a">TDAT <div id="tdatImg"></div></th>
         </tr>
         <tr id="weather"></tr>
         <tr id="precipitation"></tr>
@@ -100,7 +100,7 @@
 // function that grabs the weather report from DarkSky API and updates the page //
 
 	function refreshWeather() {
-		$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data) {
+		$.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + options.center[1] + "," + options.center[0]).done(function (data) {
 			console.log(data);
 			var weather = data;
 			$('#weather').html("");
@@ -108,13 +108,16 @@
 			$('#summary').html("");
 			$('#currentTemp').html("");
 			for (var i = 0; i < 3; i += 1) {
-				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: black; color: #C7DBE9">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
-				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #C7DBE9">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3)*100 + '%</th>');
-				$('#summary').append('<th scope="col" class="border align-middle" style="color: #C7DBE9">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
+				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: black; color: #5a5f7a">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
+
+				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #5a5f7a">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3)*100 + '%</th>');
+
+				$('#summary').append('<th scope="col" class="border align-middle" style="color: #5a5f7a">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
 			}
 
+
 			$('#currentTemp').html("");
-			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg; <p>' + weather.currently.summary + '</p>');
+			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg; <p>' + weather.currently.summary + '<div id="currentImg"></div></p>');
 
 			// var dateObject = new Date(weather.currently.time * 1000); // Whyy is this not updating as the page refreshes? //
 			// $('#date').html("");
@@ -142,7 +145,7 @@
 		});
 		map.on('result', function (ev) {
 			map.getSource('single-point').setData(ev.result.geometry);
-			console.log(ev.result.geometry.coordinates)
+			console.log(ev.result.geometry)
 		});
 		// console.log(ev.result.geometry.coordinates)
 	});

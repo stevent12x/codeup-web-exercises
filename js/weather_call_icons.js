@@ -1,4 +1,4 @@
-var weatherIcon = [
+var weatherIcons = [
 	{
 		"name": " clear day",
 		"image": "./img/climacons - master / SVG / Sun.svg"
