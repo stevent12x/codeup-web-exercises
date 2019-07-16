@@ -18,9 +18,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col" class="border" style="color: #2c2e3c">Today <div id="todaysImg"></div></th>
-            <th scope="col" class="border" style="color: #2c2e3c">Tomorrow <div id="tomorrowImg"></div></th>
-            <th scope="col" class="border" style="color: #2c2e3c">TDAT <div id="tdatImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">Today<div id="todaysImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">Tomorrow<div id="tomorrowImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">TDAT<div id="tdatImg"></div></th>
         </tr>
         <tr id="weather"></tr>
         <tr id="precipitation"></tr>
@@ -115,7 +115,7 @@
 				//     }
 
 
-				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: #5a647c; color: #2c2e3c">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;F' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;F' + '</th>');
+				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: #5a647c; color: #2c2e3c">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;F' + ' <p>High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;F' + '</p></th>');
 
 				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #2c2e3c">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3) * 100 + '%</th>');
 
@@ -192,7 +192,7 @@
     }, 1000);
 	setInterval(function () {
 		refreshWeather()
-	}, 20*1000);
+	}, 2*10000);
 
 
 })();
