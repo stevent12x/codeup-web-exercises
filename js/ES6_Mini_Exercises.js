@@ -55,9 +55,13 @@ const instructors = [
     'Terrell'
 ];
 
-instructors.forEach(function(instructor){
-    console.log(instructor);
-});
+// instructors.forEach(function(instructor){
+//     console.log(instructor);
+// });
+
+for (let instructor of instructors) {
+    console.log(instructor)
+}
 
 /*
     ARROW FUNCTIONS
@@ -68,13 +72,13 @@ instructors.forEach(function(instructor){
     Make it as concise as possible.
  */
 
-function add(x = 2, y = 3){
-    return x + y;
-}
-
-function square(x){
-    return x * x;
-}
+// function add(x = 2, y = 3){
+//     return x + y;
+// }
+//
+// function square(x){
+//     return x * x;
+// }
 /*
     DEFAULT FUNCTION PARAMETER VALUES
     refactor the following so that variable 'greeting' has a value of 'Good
@@ -83,9 +87,11 @@ function square(x){
      Check your work.
  */
 
-const myGreeting = (greeting,name) => {
-   return greeting + name;
+const myGreeting = (greeting = "Good Morning", name = "Betelgeuse") => {
+  return `${greeting}, ${name}`;
 };
+
+
 
 console.log(myGreeting());
 console.log(myGreeting("Hello", "Sophie"));
@@ -100,9 +106,9 @@ const cat = "Tom";
 const mouse = "Jerry";
 
 const pals = {
-    dog: dog,
-    cat: cat,
-    mouse: mouse
+    dog,
+    cat,
+    mouse
 };
 
 /*

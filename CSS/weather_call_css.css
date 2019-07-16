@@ -4,7 +4,7 @@
     height: 350px;
     top: 30px;
     left: 352.5px;
-    border: 5px solid grey;
+    border: 5px solid #5f5f5f;
 }
 
 #heading {
@@ -14,8 +14,16 @@
 
 #mainContainer {
     height: 7000px;
-    background: url("../img/2a9fab17327b297342e1e2ec897e8fc0.png") no-repeat center center fixed;
-    background-size: cover;
+    /*background: url("../img/Cool Sky.jpg") no-repeat center center fixed;*/
+    /*background-size: cover;*/
+    /*background: #12c2e9;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+    background: #59b29c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ACB6E5, #7dffe7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ACB6E5, #4592e7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 #todaysImg {
@@ -23,7 +31,7 @@
     width: 50px;
     height: 50px;
     position: relative;
-    left: 205px
+    left: 200px
 }
 
 #tomorrowImg {
@@ -31,7 +39,7 @@
     width: 50px;
     height: 50px;
     position: relative;
-    left: 205px
+    left: 200px
 }
 
 #tdatImg {
@@ -43,10 +51,10 @@
 }
 
 #currentImg {
-    content: url("../img/climacons-master/SVG/Cloud-Sun.svg");
+    content: url("../img/climacons-master/SVG/cloud-sun.svg");
     width: 50px;
     height: 50px;
-    position: fixed;
+    position: absolute;
     top: 12.25px;
-    right: 100px;
+    right: 140px;
 }

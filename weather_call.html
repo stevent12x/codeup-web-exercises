@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="CSS/weather_call_css.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div id="mainContainer" class="container-fluid" style="color: #3c4149">
+<div id="mainContainer" class="container-fluid" style="color: #2c2e3c">
 <body>
-<div class="row border text-center" style="color: #5a5f7a">
+<div class="row border text-center" style="color: #2c2e3c">
     <div id="date" class="col-4"></div>
     <div id="heading" class="col-4 text-center">Weather Map</div>
     <div id="currentTemp" class="col-4"></div>
@@ -18,9 +18,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col" class="border" style="color: #5a5f7a">Today <div id="todaysImg"></div></th>
-            <th scope="col" class="border" style="color: #5a5f7a">Tomorrow <div id="tomorrowImg"></div></th>
-            <th scope="col" class="border" style="color: #5a5f7a">TDAT <div id="tdatImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">Today <div id="todaysImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">Tomorrow <div id="tomorrowImg"></div></th>
+            <th scope="col" class="border" style="color: #2c2e3c">TDAT <div id="tdatImg"></div></th>
         </tr>
         <tr id="weather"></tr>
         <tr id="precipitation"></tr>
@@ -107,17 +107,24 @@
 			$('#precipitation').html("");
 			$('#summary').html("");
 			$('#currentTemp').html("");
+
+
 			for (var i = 0; i < 3; i += 1) {
-				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: black; color: #5a5f7a">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;' + '</th>');
+				// 	if (weather.daily.data[i].icon == 'partly-cloudy-day') {
+				// 		return weatherIcons[8].image
+				//     }
 
-				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #5a5f7a">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3)*100 + '%</th>');
 
-				$('#summary').append('<th scope="col" class="border align-middle" style="color: #5a5f7a">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
+				$('#weather').append('<th scope="col" class="border align-middle" style="border-color: #5a647c; color: #2c2e3c">Low: ' + parseFloat(weather.daily.data[i].apparentTemperatureLow).toFixed(1) + '&deg;F' + ' - High: ' + parseFloat(weather.daily.data[i].apparentTemperatureHigh).toFixed(1) + '&deg;F' + '</th>');
+
+				$('#precipitation').append('<th scope="col" class="border align-middle" style="color: #2c2e3c">Chance of Rain: ' + weather.daily.data[i].precipProbability.toFixed(3) * 100 + '%</th>');
+
+				$('#summary').append('<th scope="col" class="border align-middle" style="color: #2c2e3c">' + weather.daily.data[i].summary.replace("throughout the day", "").replace("throughout the day", "").replace(".", "") + '</th>');
+
 			}
 
-
 			$('#currentTemp').html("");
-			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg; <p>' + weather.currently.summary + '<div id="currentImg"></div></p>');
+			$('#currentTemp').append('Current Temperature: ' + weather.currently.temperature.toFixed(1) + '&deg;F <p>' + weather.currently.summary + '<div id="currentImg"></div></p>');
 
 			// var dateObject = new Date(weather.currently.time * 1000); // Whyy is this not updating as the page refreshes? //
 			// $('#date').html("");
@@ -140,7 +147,7 @@
 			type: 'circle',
 			paint: {
 				'circle-radius': 10,
-				'circle-color': '#448ee4'
+				'circle-color': '#66cb7d'
 			}
 		});
 		map.on('result', function (ev) {

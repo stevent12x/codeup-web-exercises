@@ -1,7 +1,7 @@
 var weatherIcons = [
 	{
 		"name": " clear day",
-		"image": "./img/climacons - master / SVG / Sun.svg"
+		"image": "img/climacons-master/SVG/Sun.svg"
 	},
 	{
 		"name": "clear night",
