@@ -3,11 +3,11 @@
 //give cohort a default value of "Betelgeuse"
 //rewrite the return to use template strings instead of concatenation
 //
-// function goodMorning(greeting,cohort){
-//     return greeting + " " + cohort + "!";
-// }
-const greeting = 'Good morning';
-const goodMorning = (greeting = 'Good morning', cohort = 'Betelgeuse') => {return `${greeting} ${cohort}!`}
+// // function goodMorning(greeting,cohort){
+// //     return greeting + " " + cohort + "!";
+// // }
+
+const goodMorning = (greeting = 'Good morning', cohort = 'Betelgeuse') => {return `${greeting} ${cohort}!`};
 
 console.log(goodMorning());
-console.log(goodMorning(greeting, "Ceres"));
+console.log(goodMorning(undefined, "Ceres"));
