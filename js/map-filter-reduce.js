@@ -51,13 +51,11 @@ console.log(userEmail);
 
 
 // Exercise #3 //
-const sumOfYears = users.reduce(function (accumulutor, currentUser) {
-	const currentSum = currentUser.yearsOfExperience;
-	return accumulutor + currentSum;
+const sumOfYears = users.reduce(function (accumulutor, user) {
+	return accumulutor + user.yearsOfExperience;
 },0)
-console.log(sumOfYears)
 const averageYear = (sumOfYears / users.length)
-console.log(averageYear);
+console.log("Sum of years: " + sumOfYears + " | Average years: " + averageYear);
 //
 
 
@@ -75,14 +73,12 @@ console.log(longestEmail);
 
 
 // Exercise #5 //
-const userNames = users.map(function (user) {
-	return user.name
-})
-const singleString = userNames.reduce(function (prevName, currentName, index, array) {
-	if (index == array.length - 1) {
-		return prevName + currentName +'.'
+const userNames = users.map(user => user.name)
+const singleString = userNames.reduce(function (prevName, currentName, index, arr) {
+	if (index == arr.length - 1) {
+		return `${prevName}and ${currentName}.`
 	} else {
-	return prevName + currentName + ', '}
+	return `${prevName}${currentName}, `}
 }, "Your instructors are: ");
 console.log(singleString);
 //
@@ -90,11 +86,9 @@ console.log(singleString);
 
 
 // BONUS //
-const languages = users.map(function(user) {
-	return user.languages
-})
+const languages = users.map(user => user.languages);
 const mergedlanguages = [].concat.apply([], languages);
 [... new Set(mergedlanguages)];
 const langList = mergedlanguages.filter((language, index) => mergedlanguages.indexOf(language)===index);
-	const listString = langList.toString().replace(/,/g, ', ');
-console.log(listString)
+	const langString = langList.toString().replace(/,/g, ', ');
+console.log(langString)
