@@ -85,5 +85,3 @@ console.log(longestName)
 //         }
 //     },{})
 //
-//     console.log(countWords("The depths of mankind are filled with toil, sadness, and woe. Bust it down Thotiana. Bring it back now."))
-// }
