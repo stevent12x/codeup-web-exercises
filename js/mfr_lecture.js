@@ -19,7 +19,7 @@ const books = [
         genres: ["dystopian","sci-fi","political fiction"],
         yearsInPublication: 70
     },
-    {
+
         title: "Noruwei no Mori",
         author: "Haruki Murakami",
         genres: ["coming of age", "novel"],
@@ -33,7 +33,6 @@ const books = [
  */
 
  const authors = books.map(book => book.author)
-console.log(authors)
 
 
 
@@ -42,6 +41,9 @@ console.log(authors)
     FILTER
     using .filter, create an array that returns all books with at least 3 genres
  */
+
+const threeGenres = books.filter(book => book.genres.length > 2)
+
 /*
     REDUCE
     using .reduce, return the total years between all books.
