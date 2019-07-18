@@ -23,25 +23,25 @@ function wait(num) {
 wait(5);
 
 
-function latestCommit(userName) {
-	var gitHubKey = "c0dbd69b915898e45d051eb91ab76d6d";
-	fetch("https://api.github.com/repos/"+userName+"/codeup-web-exercises/git/commits{/sha}", {headers: {'Authorization': 'token '+gitHubKey}})
-		.then(response => response.json())
-		.then(data => console.log(data));
-		// 	return fetch("https://api.github.com/events/" + userName + "/public"), {headers: {'Authorization': 'token ' + gitHubKey}}
-		// .then(response => response.json())
-		// 			.then(data => console.log(data))
-}
-// 	//last commit = data.updated_at//
-// 		.then(new Promise((resolve, reject) => {
-// 			if (resolve) {
-// 				console.log(data.updated_at)
-// 			} else if (reject) {
-// 				console("Something went turribly wrong");
-// 			}
-// 	}))
+const getLastPush = function(userName) {
+		const url = "https://api.github.com/users/"+userName+"/events";
+		return fetch(url, {
+			headers: {
+				"Authorization": `token ${github_try2}`
+			}
+		})
+			.then(response => response.json())
+			.then(events => {
+				for (let event of events) {
+					if (event.type == 'PushEvent') {
+						return event.created_at;
+						// console.log(`${event.type} at ${event.created_at}`)
+					}
+				}
+			})
+		}
 
-latestCommit("stevent12x")
+		console.log(getLastPush("stevent12x"));
 
 
 
